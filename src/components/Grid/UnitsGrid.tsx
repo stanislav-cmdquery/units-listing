@@ -54,6 +54,8 @@ export function UnitsGrid({
     clearDropdown,
   } = useUnitsFilter(units, config.priceStep)
 
+  const limited = useMemo(() => filteredUnits.slice(0, limit), [filteredUnits, limit])
+
   const controls = (
     <>
       {header && <div className="ul-grid-header">{header}</div>}
@@ -101,8 +103,6 @@ export function UnitsGrid({
       </div>
     )
   }
-
-  const limited = useMemo(() => filteredUnits.slice(0, limit), [filteredUnits, limit])
 
   return (
     <div className="ul-grid-root">

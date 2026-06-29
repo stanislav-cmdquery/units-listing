@@ -1,0 +1,857 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Home" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - link "Availability" [ref=e5] [cursor=pointer]:
+        - /url: /availability
+      - link "Amenities" [ref=e6] [cursor=pointer]:
+        - /url: /amenities
+      - link "Neighborhood" [ref=e7] [cursor=pointer]:
+        - /url: /neighborhood
+      - link "Local Guide" [ref=e8] [cursor=pointer]:
+        - /url: /local-guide
+      - link "Contact" [ref=e9] [cursor=pointer]:
+        - /url: /contact
+  - main [ref=e14]:
+    - generic:
+      - generic:
+        - generic "Video": Your browser does not support the video tag.
+    - generic [ref=e1305]:
+      - generic [ref=e1306]:
+        - button "Menu" [ref=e1307] [cursor=pointer]
+        - link "Starline Tower Home" [ref=e1311] [cursor=pointer]:
+          - /url: /
+          - img [ref=e1312]
+        - link "Contact us" [ref=e1333] [cursor=pointer]:
+          - /url: /contact
+          - img [ref=e1334]
+      - generic:
+        - generic:
+          - link "Availability":
+            - /url: /availability
+            - generic:
+              - generic: Availability
+              - generic: Availability
+          - link "Amenities":
+            - /url: /amenities
+            - generic:
+              - generic: Amenities
+              - generic: Amenities
+          - link "Neighborhood":
+            - /url: /neighborhood
+            - generic:
+              - generic: Neighborhood
+              - generic: Neighborhood
+          - link "Local Guide":
+            - /url: /local-guide
+            - generic:
+              - generic: Local Guide
+              - generic: Local Guide
+          - link "Tenant Portal":
+            - /url: /tenant
+            - generic:
+              - generic: Tenant Portal
+              - generic: Tenant Portal
+          - link "Book Tour":
+            - /url: /contact
+            - generic:
+              - generic: Book Tour
+              - generic: Book Tour
+        - generic:
+          - link "250 West 49th St NY 10019, USA":
+            - /url: https://maps.app.goo.gl/zCKeNR7bdb2ouTi46
+          - link "starlinetower@nooklyn.com":
+            - /url: mailto:starlinetower@nooklyn.com
+    - generic [ref=e18]:
+      - generic [ref=e20]:
+        - img "bg" [ref=e22]
+        - generic [ref=e1338]: Availability
+        - generic [ref=e23]: WELCOME TO YOUR NEW HOME
+      - generic [ref=e25]:
+        - link "Powered by SeeClickRent" [ref=e26] [cursor=pointer]:
+          - /url: https://seeclickrent.com/
+          - text: Powered by
+          - img [ref=e27]
+        - generic [ref=e45]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: Availability
+            - generic [ref=e49]: Explore all available units and find the one that fits your specific needs. Smart layouts and an abundance of natural light make every residence comfortable and great to live in.
+          - generic [ref=e51]:
+            - group "Switch units view" [ref=e52]:
+              - button "Cards" [pressed] [ref=e53]:
+                - img [ref=e54]
+                - generic [ref=e57]: Cards
+              - button "List" [ref=e58] [cursor=pointer]:
+                - img [ref=e59]
+                - generic [ref=e64]: List
+            - generic [ref=e65]:
+              - button "Open filters" [expanded] [active] [ref=e66] [cursor=pointer]:
+                - text: Filters
+                - img [ref=e67]
+              - generic [ref=e1339]:
+                - generic [ref=e1340]:
+                  - generic [ref=e1341]: Bathrooms
+                  - generic [ref=e1342]:
+                    - button "All" [pressed] [ref=e1343]
+                    - button "1" [ref=e1344] [cursor=pointer]
+                    - button "2" [ref=e1345] [cursor=pointer]
+                - generic [ref=e1346]:
+                  - generic [ref=e1347]: Price
+                  - generic [ref=e1348]:
+                    - generic [ref=e1349]:
+                      - generic [ref=e1350]: $
+                      - spinbutton "Minimum price" [ref=e1351]
+                    - generic [ref=e1353]:
+                      - generic [ref=e1354]: $
+                      - spinbutton "Maximum price" [ref=e1355]
+                - button "Clear" [ref=e1356] [cursor=pointer]
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - generic [ref=e71]:
+                - generic [ref=e72]:
+                  - generic [ref=e73]: "2301"
+                  - img [ref=e74]
+                  - generic "1-Bedroom" [ref=e76]:
+                    - text: "1"
+                    - img [ref=e77]
+                  - img [ref=e81]
+                  - generic [ref=e83]:
+                    - text: "1"
+                    - img [ref=e84]
+                - button "Show concession details" [ref=e88] [cursor=pointer]:
+                  - text: $4,670
+                  - img [ref=e89]
+                - img [ref=e95] [cursor=pointer]
+              - img "Floor plan" [ref=e99]
+              - generic [ref=e100]:
+                - button "Book tour" [ref=e101] [cursor=pointer]:
+                  - img [ref=e102]
+                  - generic [ref=e105]: Book tour
+                - generic [ref=e106] [cursor=pointer]:
+                  - img [ref=e107]
+                  - link "Floor plans" [ref=e110]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjMzLCJwdXIiOiJibG9iX2lkIn19--cafda11877c6cb3f8677c9455ff76f604183f232/2301.png
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - generic [ref=e113]:
+                  - generic [ref=e114]: "2302"
+                  - img [ref=e115]
+                  - generic "1-Bedroom" [ref=e117]:
+                    - text: "1"
+                    - img [ref=e118]
+                  - img [ref=e122]
+                  - generic [ref=e124]:
+                    - text: "1"
+                    - img [ref=e125]
+                - button "Show concession details" [ref=e129] [cursor=pointer]:
+                  - text: $4,868
+                  - img [ref=e130]
+                - img [ref=e136] [cursor=pointer]
+              - img "Floor plan" [ref=e140]
+              - generic [ref=e141]:
+                - button "Book tour" [ref=e142] [cursor=pointer]:
+                  - img [ref=e143]
+                  - generic [ref=e146]: Book tour
+                - generic [ref=e147] [cursor=pointer]:
+                  - img [ref=e148]
+                  - link "Floor plans" [ref=e151]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjI3LCJwdXIiOiJibG9iX2lkIn19--710b5152c3cf4c777df2f699b2fb1efe21a9870c/2302.png
+            - generic [ref=e152]:
+              - generic [ref=e153]:
+                - generic [ref=e154]:
+                  - generic [ref=e155]: "2305"
+                  - img [ref=e156]
+                  - generic "2-Bedroom" [ref=e158]:
+                    - text: "2"
+                    - img [ref=e159]
+                  - img [ref=e163]
+                  - generic [ref=e165]:
+                    - text: "2"
+                    - img [ref=e166]
+                - button "Show concession details" [ref=e170] [cursor=pointer]:
+                  - text: $6,838
+                  - img [ref=e171]
+                - img [ref=e177] [cursor=pointer]
+              - img "Floor plan" [ref=e181]
+              - generic [ref=e182]:
+                - button "Book tour" [ref=e183] [cursor=pointer]:
+                  - img [ref=e184]
+                  - generic [ref=e187]: Book tour
+                - generic [ref=e188] [cursor=pointer]:
+                  - img [ref=e189]
+                  - link "Floor plans" [ref=e192]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjI1LCJwdXIiOiJibG9iX2lkIn19--9cb46bd376c0564065fe43307865dd106d7b3678/2305.png
+            - generic [ref=e193]:
+              - generic [ref=e194]:
+                - generic [ref=e195]:
+                  - generic [ref=e196]: "2404"
+                  - img [ref=e197]
+                  - generic "Studio" [ref=e199]:
+                    - text: "1"
+                    - img [ref=e200]
+                  - img [ref=e204]
+                  - generic [ref=e206]:
+                    - text: "1"
+                    - img [ref=e207]
+                - button "Show concession details" [ref=e211] [cursor=pointer]:
+                  - text: $3,520
+                  - img [ref=e212]
+                - img [ref=e218] [cursor=pointer]
+              - img "Floor plan" [ref=e222]
+              - generic [ref=e223]:
+                - button "Book tour" [ref=e224] [cursor=pointer]:
+                  - img [ref=e225]
+                  - generic [ref=e228]: Book tour
+                - generic [ref=e229] [cursor=pointer]:
+                  - img [ref=e230]
+                  - link "Floor plans" [ref=e233]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjIzLCJwdXIiOiJibG9iX2lkIn19--b5c955e1c667f6ce4fcac94a31f50bda4c34d0b0/2404.png
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - generic [ref=e236]:
+                  - generic [ref=e237]: "502"
+                  - img [ref=e238]
+                  - generic "Studio" [ref=e240]:
+                    - text: "1"
+                    - img [ref=e241]
+                  - img [ref=e245]
+                  - generic [ref=e247]:
+                    - text: "1"
+                    - img [ref=e248]
+                - button "Show concession details" [ref=e252] [cursor=pointer]:
+                  - text: $3,199
+                  - img [ref=e253]
+                - img [ref=e259] [cursor=pointer]
+              - img "Floor plan" [ref=e263]
+              - generic [ref=e264]:
+                - button "Book tour" [ref=e265] [cursor=pointer]:
+                  - img [ref=e266]
+                  - generic [ref=e269]: Book tour
+                - generic [ref=e270] [cursor=pointer]:
+                  - img [ref=e271]
+                  - link "Floor plans" [ref=e274]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjIxLCJwdXIiOiJibG9iX2lkIn19--94ea0cd3cbd8043673f1eb1f0a09491c3d2c61ac/502.png
+            - generic [ref=e275]:
+              - generic [ref=e276]:
+                - generic [ref=e277]:
+                  - generic [ref=e278]: "721"
+                  - img [ref=e279]
+                  - generic "1-Bedroom" [ref=e281]:
+                    - text: "1"
+                    - img [ref=e282]
+                  - img [ref=e286]
+                  - generic [ref=e288]:
+                    - text: "1"
+                    - img [ref=e289]
+                - button "Show concession details" [ref=e293] [cursor=pointer]:
+                  - text: $4,574
+                  - img [ref=e294]
+                - img [ref=e300] [cursor=pointer]
+              - img "Floor plan" [ref=e304]
+              - generic [ref=e305]:
+                - button "Book tour" [ref=e306] [cursor=pointer]:
+                  - img [ref=e307]
+                  - generic [ref=e310]: Book tour
+                - generic [ref=e311] [cursor=pointer]:
+                  - img [ref=e312]
+                  - link "Floor plans" [ref=e315]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjQ4LCJwdXIiOiJibG9iX2lkIn19--bab856343615cae50d7fe5080b3bc102df168001/721.png
+            - generic [ref=e316]:
+              - generic [ref=e317]:
+                - generic [ref=e318]:
+                  - generic [ref=e319]: "901"
+                  - img [ref=e320]
+                  - generic "1-Bedroom" [ref=e322]:
+                    - text: "1"
+                    - img [ref=e323]
+                  - img [ref=e327]
+                  - generic [ref=e329]:
+                    - text: "1"
+                    - img [ref=e330]
+                - button "Show concession details" [ref=e334] [cursor=pointer]:
+                  - text: $4,391
+                  - img [ref=e335]
+                - img [ref=e341] [cursor=pointer]
+              - img "Floor plan" [ref=e345]
+              - generic [ref=e346]:
+                - button "Book tour" [ref=e347] [cursor=pointer]:
+                  - img [ref=e348]
+                  - generic [ref=e351]: Book tour
+                - generic [ref=e352] [cursor=pointer]:
+                  - img [ref=e353]
+                  - link "Floor plans" [ref=e356]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjUyLCJwdXIiOiJibG9iX2lkIn19--be7144bc4fe01974984293bf45cf9e5aba492a58/901.png
+            - generic [ref=e357]:
+              - generic [ref=e358]:
+                - generic [ref=e359]:
+                  - generic [ref=e360]: "902"
+                  - img [ref=e361]
+                  - generic "1-Bedroom" [ref=e363]:
+                    - text: "1"
+                    - img [ref=e364]
+                  - img [ref=e368]
+                  - generic [ref=e370]:
+                    - text: "1"
+                    - img [ref=e371]
+                - button "Show concession details" [ref=e375] [cursor=pointer]:
+                  - text: $4,547
+                  - img [ref=e376]
+                - img [ref=e382] [cursor=pointer]
+              - img "Floor plan" [ref=e386]
+              - generic [ref=e387]:
+                - button "Book tour" [ref=e388] [cursor=pointer]:
+                  - img [ref=e389]
+                  - generic [ref=e392]: Book tour
+                - generic [ref=e393] [cursor=pointer]:
+                  - img [ref=e394]
+                  - link "Floor plans" [ref=e397]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjU1LCJwdXIiOiJibG9iX2lkIn19--745b0ef9854e3937187b5f213c7a0d098907a5d5/902.png
+            - generic [ref=e398]:
+              - generic [ref=e399]:
+                - generic [ref=e400]:
+                  - generic [ref=e401]: "905"
+                  - img [ref=e402]
+                  - generic "2-Bedroom" [ref=e404]:
+                    - text: "2"
+                    - img [ref=e405]
+                  - img [ref=e409]
+                  - generic [ref=e411]:
+                    - text: "2"
+                    - img [ref=e412]
+                - button "Show concession details" [ref=e416] [cursor=pointer]:
+                  - text: $6,325
+                  - img [ref=e417]
+                - img [ref=e423] [cursor=pointer]
+              - img "Floor plan" [ref=e427]
+              - generic [ref=e428]:
+                - button "Book tour" [ref=e429] [cursor=pointer]:
+                  - img [ref=e430]
+                  - generic [ref=e433]: Book tour
+                - generic [ref=e434] [cursor=pointer]:
+                  - img [ref=e435]
+                  - link "Floor plans" [ref=e438]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjU3LCJwdXIiOiJibG9iX2lkIn19--fbeb1fff8f47605be9ff248d20fe4b60097c7d56/905.png
+            - generic [ref=e439]:
+              - generic [ref=e440]:
+                - generic [ref=e441]:
+                  - generic [ref=e442]: "1203"
+                  - img [ref=e443]
+                  - generic "Studio" [ref=e445]:
+                    - text: "1"
+                    - img [ref=e446]
+                  - img [ref=e450]
+                  - generic [ref=e452]:
+                    - text: "1"
+                    - img [ref=e453]
+                - button "Show concession details" [ref=e457] [cursor=pointer]:
+                  - text: $3,438
+                  - img [ref=e458]
+                - img [ref=e464] [cursor=pointer]
+              - img "Floor plan" [ref=e468]
+              - generic [ref=e469]:
+                - button "Book tour" [ref=e470] [cursor=pointer]:
+                  - img [ref=e471]
+                  - generic [ref=e474]: Book tour
+                - generic [ref=e475] [cursor=pointer]:
+                  - img [ref=e476]
+                  - link "Floor plans" [ref=e479]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjU5LCJwdXIiOiJibG9iX2lkIn19--8ba10fc7bfc92d7fea7fb3f410770e20f6630e42/1203.png
+            - generic [ref=e480]:
+              - generic [ref=e481]:
+                - generic [ref=e482]:
+                  - generic [ref=e483]: "1204"
+                  - img [ref=e484]
+                  - generic "Studio" [ref=e486]:
+                    - text: "1"
+                    - img [ref=e487]
+                  - img [ref=e491]
+                  - generic [ref=e493]:
+                    - text: "1"
+                    - img [ref=e494]
+                - button "Show concession details" [ref=e498] [cursor=pointer]:
+                  - text: $3,410
+                  - img [ref=e499]
+                - img [ref=e505] [cursor=pointer]
+              - img "Floor plan" [ref=e509]
+              - generic [ref=e510]:
+                - button "Book tour" [ref=e511] [cursor=pointer]:
+                  - img [ref=e512]
+                  - generic [ref=e515]: Book tour
+                - generic [ref=e516] [cursor=pointer]:
+                  - img [ref=e517]
+                  - link "Floor plans" [ref=e520]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjYxLCJwdXIiOiJibG9iX2lkIn19--2019864220440454778fd4abbe3204f1123ac42d/1204.png
+            - generic [ref=e521]:
+              - generic [ref=e522]:
+                - generic [ref=e523]:
+                  - generic [ref=e524]: "605"
+                  - img [ref=e525]
+                  - generic "1-Bedroom" [ref=e527]:
+                    - text: "1"
+                    - img [ref=e528]
+                  - img [ref=e532]
+                  - generic [ref=e534]:
+                    - text: "1"
+                    - img [ref=e535]
+                - button "Show concession details" [ref=e539] [cursor=pointer]:
+                  - text: $4,116
+                  - img [ref=e540]
+                - img [ref=e546] [cursor=pointer]
+              - img "Floor plan" [ref=e550]
+              - generic [ref=e551]:
+                - button "Book tour" [ref=e552] [cursor=pointer]:
+                  - img [ref=e553]
+                  - generic [ref=e556]: Book tour
+                - generic [ref=e557] [cursor=pointer]:
+                  - img [ref=e558]
+                  - link "Floor plans" [ref=e561]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjM5LCJwdXIiOiJibG9iX2lkIn19--17b2c607e3a7244878abd2b4931debb2d3c05ad4/605.png
+            - generic [ref=e562]:
+              - generic [ref=e563]:
+                - generic [ref=e564]:
+                  - generic [ref=e565]: "403"
+                  - img [ref=e566]
+                  - generic "1-Bedroom" [ref=e568]:
+                    - text: "1"
+                    - img [ref=e569]
+                  - img [ref=e573]
+                  - generic [ref=e575]:
+                    - text: "1"
+                    - img [ref=e576]
+                - button "Show concession details" [ref=e580] [cursor=pointer]:
+                  - text: $4,666
+                  - img [ref=e581]
+                - img [ref=e587] [cursor=pointer]
+              - img "Floor plan" [ref=e591]
+              - generic [ref=e592]:
+                - button "Book tour" [ref=e593] [cursor=pointer]:
+                  - img [ref=e594]
+                  - generic [ref=e597]: Book tour
+                - generic [ref=e598] [cursor=pointer]:
+                  - img [ref=e599]
+                  - link "Floor plans" [ref=e602]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjE3LCJwdXIiOiJibG9iX2lkIn19--e90908e793eb7e870b313adf4a0c10b3e9de8995/403.png
+            - generic [ref=e603]:
+              - generic [ref=e604]:
+                - generic [ref=e605]:
+                  - generic [ref=e606]: "608"
+                  - img [ref=e607]
+                  - generic "2-Bedroom" [ref=e609]:
+                    - text: "2"
+                    - img [ref=e610]
+                  - img [ref=e614]
+                  - generic [ref=e616]:
+                    - text: "2"
+                    - img [ref=e617]
+                - button "Show concession details" [ref=e621] [cursor=pointer]:
+                  - text: $5,949
+                  - img [ref=e622]
+                - img [ref=e628] [cursor=pointer]
+              - img "Floor plan" [ref=e632]
+              - generic [ref=e633]:
+                - button "Book tour" [ref=e634] [cursor=pointer]:
+                  - img [ref=e635]
+                  - generic [ref=e638]: Book tour
+                - generic [ref=e639] [cursor=pointer]:
+                  - img [ref=e640]
+                  - link "Floor plans" [ref=e643]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjQyLCJwdXIiOiJibG9iX2lkIn19--a13ae5d7e97c1f8585b623b6aa82bb06338fc96a/608.png
+            - generic [ref=e644]:
+              - generic [ref=e645]:
+                - generic [ref=e646]:
+                  - generic [ref=e647]: "701"
+                  - img [ref=e648]
+                  - generic "2-Bedroom" [ref=e650]:
+                    - text: "2"
+                    - img [ref=e651]
+                  - img [ref=e655]
+                  - generic [ref=e657]:
+                    - text: "2"
+                    - img [ref=e658]
+                - button "Show concession details" [ref=e662] [cursor=pointer]:
+                  - text: $6,233
+                  - img [ref=e663]
+                - img [ref=e669] [cursor=pointer]
+              - img "Floor plan" [ref=e673]
+              - generic [ref=e674]:
+                - button "Book tour" [ref=e675] [cursor=pointer]:
+                  - img [ref=e676]
+                  - generic [ref=e679]: Book tour
+                - generic [ref=e680] [cursor=pointer]:
+                  - img [ref=e681]
+                  - link "Floor plans" [ref=e684]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjQ2LCJwdXIiOiJibG9iX2lkIn19--d4e76aedd01de119635ee41bf7a34b2650baa54e/701.png
+            - generic [ref=e685]:
+              - generic [ref=e686]:
+                - generic [ref=e687]:
+                  - generic [ref=e688]: "515"
+                  - img [ref=e689]
+                  - generic "Studio" [ref=e691]:
+                    - text: "1"
+                    - img [ref=e692]
+                  - img [ref=e696]
+                  - generic [ref=e698]:
+                    - text: "1"
+                    - img [ref=e699]
+                - button "Show concession details" [ref=e703] [cursor=pointer]:
+                  - text: $3,328
+                  - img [ref=e704]
+                - img [ref=e710] [cursor=pointer]
+              - img "Photo" [ref=e1357]
+              - generic [ref=e715]:
+                - button "Book tour" [ref=e716] [cursor=pointer]:
+                  - img [ref=e717]
+                  - generic [ref=e720]: Book tour
+                - generic [ref=e721] [cursor=pointer]:
+                  - img [ref=e722]
+                  - link "Floor plans" [ref=e725]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3MjA5LCJwdXIiOiJibG9iX2lkIn19--8989b11deffd27984720584d12a2bb09863ac2db/515.pdf
+            - generic [ref=e726]:
+              - generic [ref=e727]:
+                - generic [ref=e728]:
+                  - generic [ref=e729]: "520"
+                  - img [ref=e730]
+                  - generic "Studio" [ref=e732]:
+                    - text: "1"
+                    - img [ref=e733]
+                  - img [ref=e737]
+                  - generic [ref=e739]:
+                    - text: "1"
+                    - img [ref=e740]
+                - button "Show concession details" [ref=e744] [cursor=pointer]:
+                  - text: $3,328
+                  - img [ref=e745]
+                - img [ref=e751] [cursor=pointer]
+              - img "Floor plan" [ref=e755]
+              - generic [ref=e756]:
+                - button "Book tour" [ref=e757] [cursor=pointer]:
+                  - img [ref=e758]
+                  - generic [ref=e761]: Book tour
+                - generic [ref=e762] [cursor=pointer]:
+                  - img [ref=e763]
+                  - link "Floor plans" [ref=e766]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3MjEwLCJwdXIiOiJibG9iX2lkIn19--cc56bf4d49e770b2a4bb6a8dbbf8597633ce632b/520.pdf
+            - generic [ref=e767]:
+              - generic [ref=e768]:
+                - generic [ref=e769]:
+                  - generic [ref=e770]: "522"
+                  - img [ref=e771]
+                  - generic "Studio" [ref=e773]:
+                    - text: "1"
+                    - img [ref=e774]
+                  - img [ref=e778]
+                  - generic [ref=e780]:
+                    - text: "1"
+                    - img [ref=e781]
+                - button "Show concession details" [ref=e785] [cursor=pointer]:
+                  - text: $3,199
+                  - img [ref=e786]
+                - img [ref=e792] [cursor=pointer]
+              - img "Floor plan" [ref=e796]
+              - generic [ref=e797]:
+                - button "Book tour" [ref=e798] [cursor=pointer]:
+                  - img [ref=e799]
+                  - generic [ref=e802]: Book tour
+                - generic [ref=e803] [cursor=pointer]:
+                  - img [ref=e804]
+                  - link "Floor plans" [ref=e807]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3MjExLCJwdXIiOiJibG9iX2lkIn19--e5c14b98baffd5b57bae7527cf6b9ef1f86ac974/522.pdf
+            - generic [ref=e808]:
+              - generic [ref=e809]:
+                - generic [ref=e810]:
+                  - generic [ref=e811]: "621"
+                  - img [ref=e812]
+                  - generic "1-Bedroom" [ref=e814]:
+                    - text: "1"
+                    - img [ref=e815]
+                  - img [ref=e819]
+                  - generic [ref=e821]:
+                    - text: "1"
+                    - img [ref=e822]
+                - button "Show concession details" [ref=e826] [cursor=pointer]:
+                  - text: $4,556
+                  - img [ref=e827]
+                - img [ref=e833] [cursor=pointer]
+              - img "Floor plan" [ref=e837]
+              - generic [ref=e838]:
+                - button "Book tour" [ref=e839] [cursor=pointer]:
+                  - img [ref=e840]
+                  - generic [ref=e843]: Book tour
+                - generic [ref=e844] [cursor=pointer]:
+                  - img [ref=e845]
+                  - link "Floor plans" [ref=e848]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3MjE4LCJwdXIiOiJibG9iX2lkIn19--c3e83c5b091294e2a9df651e85203dc65e0511e7/621.pdf
+            - generic [ref=e849]:
+              - generic [ref=e850]:
+                - generic [ref=e851]:
+                  - generic [ref=e852]: "705"
+                  - img [ref=e853]
+                  - generic "1-Bedroom" [ref=e855]:
+                    - text: "1"
+                    - img [ref=e856]
+                  - img [ref=e860]
+                  - generic [ref=e862]:
+                    - text: "1"
+                    - img [ref=e863]
+                - button "Show concession details" [ref=e867] [cursor=pointer]:
+                  - text: $4,143
+                  - img [ref=e868]
+                - img [ref=e874] [cursor=pointer]
+              - img "Floor plan" [ref=e878]
+              - generic [ref=e879]:
+                - button "Book tour" [ref=e880] [cursor=pointer]:
+                  - img [ref=e881]
+                  - generic [ref=e884]: Book tour
+                - generic [ref=e885] [cursor=pointer]:
+                  - img [ref=e886]
+                  - link "Floor plans" [ref=e889]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3MjE5LCJwdXIiOiJibG9iX2lkIn19--e38adbf93dde9774e53afab53d5b423c34e904d4/705.pdf
+            - generic [ref=e890]:
+              - generic [ref=e891]:
+                - generic [ref=e892]:
+                  - generic [ref=e893]: "719"
+                  - img [ref=e894]
+                  - generic "1-Bedroom" [ref=e896]:
+                    - text: "1"
+                    - img [ref=e897]
+                  - img [ref=e901]
+                  - generic [ref=e903]:
+                    - text: "1"
+                    - img [ref=e904]
+                - button "Show concession details" [ref=e908] [cursor=pointer]:
+                  - text: $4,208
+                  - img [ref=e909]
+                - img [ref=e915] [cursor=pointer]
+              - img "Floor plan" [ref=e919]
+              - generic [ref=e920]:
+                - button "Book tour" [ref=e921] [cursor=pointer]:
+                  - img [ref=e922]
+                  - generic [ref=e925]: Book tour
+                - generic [ref=e926] [cursor=pointer]:
+                  - img [ref=e927]
+                  - link "Floor plans" [ref=e930]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3MjMwLCJwdXIiOiJibG9iX2lkIn19--0e9fdca5b957adb3dd2cc69f8cf44f6e999b99f3/719.pdf
+            - generic [ref=e931]:
+              - generic [ref=e932]:
+                - generic [ref=e933]:
+                  - generic [ref=e934]: "723"
+                  - img [ref=e935]
+                  - generic "2-Bedroom" [ref=e937]:
+                    - text: "2"
+                    - img [ref=e938]
+                  - img [ref=e942]
+                  - generic [ref=e944]:
+                    - text: "2"
+                    - img [ref=e945]
+                - button "Show concession details" [ref=e949] [cursor=pointer]:
+                  - text: $6,224
+                  - img [ref=e950]
+                - img [ref=e956] [cursor=pointer]
+              - img "Floor plan" [ref=e960]
+              - generic [ref=e961]:
+                - button "Book tour" [ref=e962] [cursor=pointer]:
+                  - img [ref=e963]
+                  - generic [ref=e966]: Book tour
+                - generic [ref=e967] [cursor=pointer]:
+                  - img [ref=e968]
+                  - link "Floor plans" [ref=e971]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3MjMxLCJwdXIiOiJibG9iX2lkIn19--9ebd3509c0e23de66b0469c6d2b8af5b92a3e8be/723.pdf
+            - generic [ref=e972]:
+              - generic [ref=e973]:
+                - generic [ref=e974]:
+                  - generic [ref=e975]: "1903"
+                  - img [ref=e976]
+                  - generic "Studio" [ref=e978]:
+                    - text: "1"
+                    - img [ref=e979]
+                  - img [ref=e983]
+                  - generic [ref=e985]:
+                    - text: "1"
+                    - img [ref=e986]
+                - button "Show concession details" [ref=e990] [cursor=pointer]:
+                  - text: $3,534
+                  - img [ref=e991]
+                - img [ref=e997] [cursor=pointer]
+              - img "Floor plan" [ref=e1001]
+              - generic [ref=e1002]:
+                - button "Book tour" [ref=e1003] [cursor=pointer]:
+                  - img [ref=e1004]
+                  - generic [ref=e1007]: Book tour
+                - generic [ref=e1008] [cursor=pointer]:
+                  - img [ref=e1009]
+                  - link "Floor plans" [ref=e1012]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDA3Mjc1LCJwdXIiOiJibG9iX2lkIn19--8738980e42e368cfed6d600a96d259d3bdbe5c2a/1903.pdf
+            - generic [ref=e1013]:
+              - generic [ref=e1014]:
+                - generic [ref=e1015]:
+                  - generic [ref=e1016]: "617"
+                  - img [ref=e1017]
+                  - generic "2-Bedroom" [ref=e1019]:
+                    - text: "2"
+                    - img [ref=e1020]
+                  - img [ref=e1024]
+                  - generic [ref=e1026]:
+                    - text: "2"
+                    - img [ref=e1027]
+                - button "Show concession details" [ref=e1031] [cursor=pointer]:
+                  - text: $6,133
+                  - img [ref=e1032]
+                - img [ref=e1038] [cursor=pointer]
+              - img "Floor plan" [ref=e1042]
+              - generic [ref=e1043]:
+                - button "Book tour" [ref=e1044] [cursor=pointer]:
+                  - img [ref=e1045]
+                  - generic [ref=e1048]: Book tour
+                - generic [ref=e1049] [cursor=pointer]:
+                  - img [ref=e1050]
+                  - link "Floor plans" [ref=e1053]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjQ0LCJwdXIiOiJibG9iX2lkIn19--c328d3f7d68cd314dd5bfb1447d3f5b95f0417b8/617.png
+            - generic [ref=e1054]:
+              - generic [ref=e1055]:
+                - generic [ref=e1056]:
+                  - generic [ref=e1057]: "422"
+                  - img [ref=e1058]
+                  - generic "Studio" [ref=e1060]:
+                    - text: "1"
+                    - img [ref=e1061]
+                  - img [ref=e1065]
+                  - generic [ref=e1067]:
+                    - text: "1"
+                    - img [ref=e1068]
+                - button "Show concession details" [ref=e1072] [cursor=pointer]:
+                  - text: $3,758
+                  - img [ref=e1073]
+                - img [ref=e1079] [cursor=pointer]
+              - img "Floor plan" [ref=e1083]
+              - generic [ref=e1084]:
+                - button "Book tour" [ref=e1085] [cursor=pointer]:
+                  - img [ref=e1086]
+                  - generic [ref=e1089]: Book tour
+                - generic [ref=e1090] [cursor=pointer]:
+                  - img [ref=e1091]
+                  - link "Floor plans" [ref=e1094]:
+                    - /url: https://seeclickrent.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzYwMjE5LCJwdXIiOiJibG9iX2lkIn19--f69ebfcaecc5fc093266645edbd9d178d28c47b1/422.png
+      - generic [ref=e1096]:
+        - img "frame" [ref=e1098]
+        - generic:
+          - img "frame"
+      - generic [ref=e1099]:
+        - generic [ref=e1100]:
+          - generic [ref=e1101]: EXPLORE THE FEATURES
+          - generic [ref=e1102]: Starline Tower residences are defined by warm materials, soft tones and clean, modern lines. Kitchens pair textured cabinetry with refined stone surfaces, while bathrooms feature spacious walk-in showers and contemporary fixtures. Every detail is designed to feel calm, balanced and effortless.
+        - generic [ref=e1104]:
+          - generic [ref=e1105]:
+            - generic [ref=e1106]:
+              - generic [ref=e1108]:
+                - img "Apartment" [ref=e1111]
+                - img "Billiards Bar" [ref=e1114]
+                - img "Apartment" [ref=e1117]
+                - img "Kitchen" [ref=e1120]
+                - img "Apartment" [ref=e1123]
+                - img "Apartment" [ref=e1126]
+                - img "Apartment" [ref=e1129]
+              - generic [ref=e1131]:
+                - img "Kitchen" [ref=e1134]
+                - img "Apartment" [ref=e1137]
+                - img "Apartment" [ref=e1140]
+                - img "Party Room" [ref=e1143]
+                - img "Apartment" [ref=e1146]
+                - img "Apartment" [ref=e1149]
+                - img "Billiards Bar" [ref=e1152]
+            - generic [ref=e1153]:
+              - generic [ref=e1155]:
+                - img [ref=e1158]
+                - img [ref=e1161]
+                - img [ref=e1164]
+                - img [ref=e1167]
+                - img [ref=e1170]
+                - img [ref=e1173]
+                - img [ref=e1176]
+              - generic [ref=e1178]:
+                - img [ref=e1181]
+                - img [ref=e1184]
+                - img [ref=e1187]
+                - img [ref=e1190]
+                - img [ref=e1193]
+                - img [ref=e1196]
+                - img [ref=e1199]
+          - button "Play" [ref=e1201] [cursor=pointer]:
+            - img [ref=e1203]
+            - generic [ref=e1207]:
+              - generic [ref=e1208]: Play
+              - generic [ref=e1209]: Play
+      - generic [ref=e1210]:
+        - img "CTA" [ref=e1212]
+        - link "EXPLORE AMENITIES" [ref=e1213] [cursor=pointer]:
+          - /url: /amenities
+          - generic [ref=e1214]:
+            - generic [ref=e1215]: EXPLORE AMENITIES
+            - generic [ref=e1216]: EXPLORE AMENITIES
+      - generic [ref=e1217]:
+        - link [ref=e1218] [cursor=pointer]:
+          - /url: /
+          - img [ref=e1219]
+        - generic [ref=e1240]:
+          - generic [ref=e1243]:
+            - generic [ref=e1244]: Subscribe to Starline Tower’s Newsletter
+            - generic [ref=e1245]:
+              - generic [ref=e1246]:
+                - textbox "YOUR EMAIL" [ref=e1247]:
+                  - /placeholder: " "
+                - generic [ref=e1248]: YOUR EMAIL
+              - button "Subscribe" [ref=e1249] [cursor=pointer]:
+                - img [ref=e1250]
+          - generic [ref=e1254]:
+            - generic [ref=e1255]:
+              - link "Availability" [ref=e1256] [cursor=pointer]:
+                - /url: /availability
+                - generic [ref=e1257]:
+                  - generic [ref=e1258]: Availability
+                  - generic [ref=e1259]: Availability
+              - link "Amenities" [ref=e1260] [cursor=pointer]:
+                - /url: /amenities
+                - generic [ref=e1261]:
+                  - generic [ref=e1262]: Amenities
+                  - generic [ref=e1263]: Amenities
+              - link "Neighborhood" [ref=e1264] [cursor=pointer]:
+                - /url: /neighborhood
+                - generic [ref=e1265]:
+                  - generic [ref=e1266]: Neighborhood
+                  - generic [ref=e1267]: Neighborhood
+              - link "Local Guide" [ref=e1268] [cursor=pointer]:
+                - /url: /local-guide
+                - generic [ref=e1269]:
+                  - generic [ref=e1270]: Local Guide
+                  - generic [ref=e1271]: Local Guide
+              - link "Tenant Portal" [ref=e1272] [cursor=pointer]:
+                - /url: /tenant
+                - generic [ref=e1273]:
+                  - generic [ref=e1274]: Tenant Portal
+                  - generic [ref=e1275]: Tenant Portal
+            - link "BOOK TOUR" [ref=e1277] [cursor=pointer]:
+              - /url: /contact
+              - generic [ref=e1278]:
+                - generic [ref=e1279]: BOOK TOUR
+                - generic [ref=e1280]: BOOK TOUR
+          - generic [ref=e1281]:
+            - generic [ref=e1282]:
+              - link "250 West 49th St NY 10019, USA" [ref=e1283] [cursor=pointer]:
+                - /url: https://maps.app.goo.gl/zCKeNR7bdb2ouTi46
+              - link "starlinetower@nooklyn.com" [ref=e1284] [cursor=pointer]:
+                - /url: mailto:starlinetower@nooklyn.com
+            - generic [ref=e1285]:
+              - generic [ref=e1286]: Follow us on
+              - link "Instagram" [ref=e1287] [cursor=pointer]:
+                - /url: https://instagram.com/starlinetower
+        - generic [ref=e1288]:
+          - generic [ref=e1290]:
+            - img [ref=e1291]
+            - generic "Equal Housing Opportunity" [ref=e1299]:
+              - img "Equal Housing Opportunity" [ref=e1300]
+          - generic [ref=e1301]: All information provided herein, including but not limited to prices, plans, specifications, and availability, is subject to change without notice. Renderings, images, and illustrations are artist’s impressions and may differ from the final product. Equal Housing Opportunity. This is not an offering where prohibited by law.
+          - generic [ref=e1302]:
+            - text: Designed by
+            - link "Command & Query" [ref=e1303] [cursor=pointer]:
+              - /url: https://cmdquery.com/
+  - alert [ref=e1304]

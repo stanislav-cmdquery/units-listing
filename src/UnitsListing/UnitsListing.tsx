@@ -1,5 +1,6 @@
 'use client'
 import { useCallback, useMemo, type CSSProperties } from 'react'
+import '../styles/global.css'
 import { UnitsListingProvider } from '../context/UnitsListingContext'
 import { UnitsGrid } from '../components/Grid/UnitsGrid'
 import { UnitCard } from '../components/Card/UnitCard'
