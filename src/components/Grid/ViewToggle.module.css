@@ -1,0 +1,55 @@
+.root {
+  display: inline-flex;
+  padding: 2px;
+  border-radius: var(--ul-radius-pill);
+  background-color: var(--ul-color-bg);
+  height: 40px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ul-space-1);
+  padding: 8px 12px;
+  border-radius: var(--ul-radius-pill);
+  border: none;
+  background-color: transparent;
+  color: var(--ul-color-price-text);
+  font-size: var(--ul-font-size-base);
+  font-style: normal;
+  font-weight: var(--ul-font-weight-medium);
+  line-height: 110%;
+  letter-spacing: -0.28px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--ul-transition);
+  user-select: none;
+}
+
+.btn:hover {
+  color: rgba(38, 37, 35, 0.7);
+}
+
+.btnActive {
+  background-color: var(--ul-color-accent);
+  color: var(--ul-color-accent-contrast);
+  cursor: default;
+}
+
+.btnActive:hover {
+  color: var(--ul-color-accent-contrast);
+}
+
+.icon {
+  display: block;
+}
+
+.label {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 10px 18px;
+  }
+}
