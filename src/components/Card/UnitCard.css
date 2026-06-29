@@ -1,4 +1,4 @@
-.root {
+.ul-card-root {
   width: 100%;
   height: max-content;
   display: flex;
@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.top {
+.ul-card-top {
   width: 100%;
   display: flex;
   gap: var(--ul-space-1);
@@ -24,7 +24,7 @@
   background-color: var(--ul-color-bg);
 }
 
-.priceNet {
+.ul-card-price-net {
   display: flex;
   align-items: center;
   gap: var(--ul-space-1);
@@ -43,16 +43,16 @@
   font-family: inherit;
 }
 
-button.priceNet {
+button.ul-card-price-net {
   cursor: pointer;
   transition: background-color var(--ul-transition);
 }
 
-button.priceNet:hover {
+button.ul-card-price-net:hover {
   background-color: rgba(229, 207, 180, 0.7);
 }
 
-.bottom {
+.ul-card-bottom {
   width: 100%;
   display: flex;
   align-items: center;
@@ -62,14 +62,14 @@ button.priceNet:hover {
   background-color: var(--ul-color-bg);
 }
 
-.center {
+.ul-card-center {
   width: 100%;
   aspect-ratio: var(--aspect, 4 / 3);
   position: relative;
   overflow: hidden;
 }
 
-.hasGallery:before {
+.ul-card-has-gallery:before {
   content: '';
   position: absolute;
   left: 0;
@@ -84,19 +84,19 @@ button.priceNet:hover {
   pointer-events: none;
 }
 
-.image {
+.ul-card-image {
   object-fit: cover;
 }
 
-.infoOpen {
+.ul-card-info-open {
   background-color: rgba(255, 255, 255, 0.85);
 }
 
-.priceInfoIcon {
+.ul-card-price-info-icon {
   flex-shrink: 0;
 }
 
-.enlargeButton {
+.ul-card-enlarge-button {
   height: 40px;
   border-radius: 100px;
   background: var(--ul-color-price);
@@ -112,7 +112,7 @@ button.priceNet:hover {
   outline: none;
 }
 
-.enlargeText {
+.ul-card-enlarge-text {
   color: var(--ul-color-price-text);
   font-size: var(--ul-font-size-base);
   font-style: normal;
@@ -131,17 +131,17 @@ button.priceNet:hover {
   display: flex;
 }
 
-.enlargeButton:hover .enlargeText {
+.ul-card-enlarge-button:hover .ul-card-enlarge-text {
   opacity: 1;
   max-width: 200px;
   margin-right: 8px;
 }
 
-.enlargeIcon {
+.ul-card-enlarge-icon {
   color: var(--ul-color-price-text);
 }
 
-.navButton {
+.ul-card-nav-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -161,24 +161,24 @@ button.priceNet:hover {
     opacity var(--ul-transition);
 }
 
-.navButton:disabled {
+.ul-card-nav-button:disabled {
   background: rgba(229, 207, 180, 0.4);
   cursor: default;
 }
 
-.navButton:not(:disabled):hover {
+.ul-card-nav-button:not(:disabled):hover {
   background: rgba(229, 207, 180, 0.8);
 }
 
-.navPrev {
+.ul-card-nav-prev {
   left: 16px;
 }
 
-.navNext {
+.ul-card-nav-next {
   right: 16px;
 }
 
-.dots {
+.ul-card-dots {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -188,7 +188,7 @@ button.priceNet:hover {
   z-index: 2;
 }
 
-.dot {
+.ul-card-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -199,11 +199,11 @@ button.priceNet:hover {
   transition: background-color var(--ul-transition);
 }
 
-.dotActive {
+.ul-card-dot-active {
   background: #fff;
 }
 
-.onRequest {
+.ul-card-on-request {
   font-size: var(--ul-font-size-sm);
   font-style: normal;
   font-weight: 300;
@@ -212,35 +212,35 @@ button.priceNet:hover {
 }
 
 @media (min-width: 768px) {
-  .root {
+  .ul-card-root {
     width: 100%;
   }
 
-  .top {
+  .ul-card-top {
     font-size: var(--ul-font-size-xl);
     padding: var(--ul-space-4);
     gap: var(--ul-space-2);
   }
 
-  .bottom {
+  .ul-card-bottom {
     padding: var(--ul-space-4);
     gap: 6px;
     justify-content: space-between;
   }
 
-  .enlargeButton,
-  .navButton,
-  .dots {
+  .ul-card-enlarge-button,
+  .ul-card-nav-button,
+  .ul-card-dots {
     visibility: hidden;
     opacity: 0;
     transition: all var(--ul-transition);
     pointer-events: none;
   }
 
-  .center:hover .enlargeButton,
-  .center:hover .navButton,
-  .hasGallery:hover:before,
-  .center:hover .dots {
+  .ul-card-center:hover .ul-card-enlarge-button,
+  .ul-card-center:hover .ul-card-nav-button,
+  .ul-card-has-gallery:hover:before,
+  .ul-card-center:hover .ul-card-dots {
     visibility: visible;
     opacity: 1;
     pointer-events: all;
@@ -248,14 +248,20 @@ button.priceNet:hover {
 }
 
 @media (min-width: 1085px) {
-  .top {
+  .ul-card-top {
     font-size: var(--ul-font-size-xl);
     padding: var(--ul-space-4) var(--ul-space-5);
   }
 
-  .bottom {
+  .ul-card-bottom {
     padding: var(--ul-space-4);
     gap: 6px;
     justify-content: space-between;
   }
 }
+
+/* Bed-count variants — override token values per property type */
+.ul-card-beds-0 {}
+.ul-card-beds-1 {}
+.ul-card-beds-2 {}
+.ul-card-beds-many {}

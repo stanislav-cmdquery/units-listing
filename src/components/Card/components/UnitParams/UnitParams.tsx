@@ -3,7 +3,7 @@
 import clsx from 'clsx'
 
 import { Circle } from '../Circle/Circle'
-import s from './UnitParams.module.css'
+import './UnitParams.css'
 
 type Props = {
   unitNumber?: string
@@ -14,14 +14,14 @@ type Props = {
 
 export function UnitParams({ unitNumber, beds, baths, className }: Props) {
   return (
-    <div className={clsx(s.params, className)}>
+    <div className={clsx('ul-unit-params-params', className)}>
       {unitNumber && (
         <>
-          <div className={s.item}>{unitNumber}</div>
-          <Circle className={s.circle} />
+          <div className="ul-unit-params-item">{unitNumber}</div>
+          <Circle className="ul-unit-params-circle" />
         </>
       )}
-      <div className={s.item} title={beds === 0 ? 'Studio' : `${beds}-Bedroom`}>
+      <div className="ul-unit-params-item" title={beds === 0 ? 'Studio' : `${beds}-Bedroom`}>
         {beds === 0 ? 1 : beds}{' '}
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <g clipPath="url(#up-bed)">
@@ -61,8 +61,8 @@ export function UnitParams({ unitNumber, beds, baths, className }: Props) {
           </defs>
         </svg>
       </div>
-      <Circle className={s.circle} />
-      <div className={s.item}>
+      <Circle className="ul-unit-params-circle" />
+      <div className="ul-unit-params-item">
         {baths}{' '}
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path

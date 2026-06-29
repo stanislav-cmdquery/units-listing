@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 
-import s from './ViewToggle.module.css'
+import './ViewToggle.css'
 
 export type View = 'cards' | 'list'
 
@@ -15,15 +15,15 @@ type Props = {
 
 export function ViewToggle({ view, onChange, labelCards = 'Cards', labelList = 'List' }: Props) {
   return (
-    <div className={s.root} role="group" aria-label="Switch units view">
+    <div className="ul-view-toggle-root" role="group" aria-label="Switch units view">
       <button
         type="button"
-        className={clsx(s.btn, view === 'cards' && s.btnActive)}
+        className={clsx('ul-view-toggle-btn', view === 'cards' && 'ul-view-toggle-btn-active')}
         onClick={() => onChange('cards')}
         aria-pressed={view === 'cards'}
       >
         <svg
-          className={s.icon}
+          className="ul-view-toggle-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -59,17 +59,17 @@ export function ViewToggle({ view, onChange, labelCards = 'Cards', labelList = '
             </clipPath>
           </defs>
         </svg>
-        <span className={s.label}>{labelCards}</span>
+        <span className="ul-view-toggle-label">{labelCards}</span>
       </button>
 
       <button
         type="button"
-        className={clsx(s.btn, view === 'list' && s.btnActive)}
+        className={clsx('ul-view-toggle-btn', view === 'list' && 'ul-view-toggle-btn-active')}
         onClick={() => onChange('list')}
         aria-pressed={view === 'list'}
       >
         <svg
-          className={s.icon}
+          className="ul-view-toggle-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -117,7 +117,7 @@ export function ViewToggle({ view, onChange, labelCards = 'Cards', labelList = '
             </clipPath>
           </defs>
         </svg>
-        <span className={s.label}>{labelList}</span>
+        <span className="ul-view-toggle-label">{labelList}</span>
       </button>
     </div>
   )

@@ -1,4 +1,4 @@
-.popup {
+.ul-concession-popup {
   position: absolute;
   inset: 0;
   background-color: rgba(254, 243, 229, 0.97);
@@ -9,7 +9,7 @@
   visibility: hidden;
 }
 
-.content {
+.ul-concession-content {
   width: max-content;
   position: absolute;
   top: 50%;
@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.prices {
+.ul-concession-prices {
   color: var(--ul-color-accent);
   font-size: 32px;
   font-style: normal;
@@ -32,14 +32,14 @@
   align-items: center;
 }
 
-.priceNet {
+.ul-concession-price-net {
   display: flex;
   align-items: center;
   gap: var(--ul-space-1);
   flex-wrap: nowrap;
 }
 
-.priceGross {
+.ul-concession-price-gross {
   color: var(--ul-color-text-muted);
   font-weight: 300;
   display: flex;
@@ -47,7 +47,7 @@
   gap: var(--ul-space-1);
 }
 
-.netEffective {
+.ul-concession-net-effective {
   color: var(--ul-color-text);
   text-align: center;
   font-size: var(--ul-font-size-md);
@@ -58,7 +58,7 @@
   margin: auto;
 }
 
-.saveBadge {
+.ul-concession-save-badge {
   padding: var(--ul-space-1) var(--ul-space-2);
   border-radius: var(--ul-radius-xs);
   background: var(--ul-color-price);
@@ -71,7 +71,7 @@
   margin-bottom: var(--ul-space-6);
 }
 
-.close {
+.ul-concession-close {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -82,7 +82,7 @@
   color: var(--ul-color-text);
 }
 
-.close:hover {
+.ul-concession-close:hover {
   opacity: 0.7;
 }
 

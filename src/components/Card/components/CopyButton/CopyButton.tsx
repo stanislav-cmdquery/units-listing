@@ -2,7 +2,7 @@
 
 import { formatUSD } from '../../../../utils/formatPrice'
 import { CopyHoverInfo } from '../CopyHoverInfo/CopyHoverInfo'
-import s from './CopyButton.module.css'
+import './CopyButton.css'
 
 type Props = {
   unitNumber?: string
@@ -24,7 +24,7 @@ Baths: ${info.baths === 0 ? 1 : info.baths}
 export function CopyButton({ unitNumber, beds, baths, priceNet, priceGross }: Props) {
   return (
     <div
-      className={s.root}
+      className="ul-copy-btn-root"
       onClick={() => {
         navigator.clipboard.writeText(prepareInfoForCopy({ unitNumber, beds, baths, priceNet, priceGross }))
       }}
@@ -46,7 +46,7 @@ export function CopyButton({ unitNumber, beds, baths, priceNet, priceGross }: Pr
         />
       </svg>
 
-      <CopyHoverInfo className={s.info}>Copy to clipboard</CopyHoverInfo>
+      <CopyHoverInfo className="ul-copy-btn-info">Copy to clipboard</CopyHoverInfo>
     </div>
   )
 }

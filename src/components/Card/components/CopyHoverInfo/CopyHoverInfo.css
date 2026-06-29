@@ -1,4 +1,4 @@
-.root {
+.ul-copy-hover-root {
   width: 132px;
   background-color: var(--ul-color-text);
   padding: 4px 6px;
@@ -17,7 +17,7 @@
   visibility: hidden;
 }
 
-.arrow {
+.ul-copy-hover-arrow {
   position: absolute;
   bottom: -13px;
   right: 10px;

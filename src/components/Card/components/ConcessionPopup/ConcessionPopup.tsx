@@ -2,7 +2,7 @@
 
 import { formatUSD } from '../../../../utils/formatPrice'
 import { useUnitsListingConfig } from '../../../../context/UnitsListingContext'
-import s from './ConcessionPopup.module.css'
+import './ConcessionPopup.css'
 
 type Props = {
   priceNet: number | null
@@ -38,27 +38,27 @@ export function ConcessionPopup({
   }`
 
   return (
-    <div className={s.popup} onClick={onClose} role="dialog" aria-label="Concession details">
-      <div className={s.content}>
-        <div className={s.prices}>
+    <div className="ul-concession-popup" onClick={onClose} role="dialog" aria-label="Concession details">
+      <div className="ul-concession-content">
+        <div className="ul-concession-prices">
           {priceGross != null && priceGross > 0 && priceGross !== priceNet && (
-            <div className={s.priceGross}>
+            <div className="ul-concession-price-gross">
               <s>{formatUSD(priceGross)}</s>
             </div>
           )}
-          {priceNet != null && priceNet > 0 && <div className={s.priceNet}>{formatUSD(priceNet)}*</div>}
+          {priceNet != null && priceNet > 0 && <div className="ul-concession-price-net">{formatUSD(priceNet)}*</div>}
         </div>
 
         {showSaveBadge && priceNet != null && priceNet > 0 && priceGross != null && (
-          <div className={s.saveBadge}>
+          <div className="ul-concession-save-badge">
             Save {formatUSD(priceGross - priceNet)} ({(((priceGross - priceNet) / priceGross) * 100).toFixed(0)}% off)
           </div>
         )}
 
-        {hasConcession && <div className={s.netEffective}>{netEffectiveText}</div>}
+        {hasConcession && <div className="ul-concession-net-effective">{netEffectiveText}</div>}
       </div>
 
-      <div className={s.close} onClick={onClose}>
+      <div className="ul-concession-close" onClick={onClose}>
         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
           <path d="M6.5 19.5L19.5 6.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
           <path d="M19.5 19.5L6.5 6.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />

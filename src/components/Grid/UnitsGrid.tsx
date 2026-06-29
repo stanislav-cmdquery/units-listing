@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 import type { Unit } from '../../types/unit'
 import { useUnitsListingConfig } from '../../context/UnitsListingContext'
 import { useUnitsFilter } from '../../hooks/useUnitsFilter'
 import { FiltersDropdown } from '../Filters/FiltersDropdown'
 import { ViewToggle, type View } from './ViewToggle'
-import s from './UnitsGrid.module.css'
+import './UnitsGrid.css'
 
 type Props = {
   units: Unit[]
@@ -56,9 +56,9 @@ export function UnitsGrid({
 
   const controls = (
     <>
-      {header && <div className={s.header}>{header}</div>}
-      <div className={s.controls}>
-        <div className={s.controlsRight}>
+      {header && <div className="ul-grid-header">{header}</div>}
+      <div className="ul-grid-controls">
+        <div className="ul-grid-controls-right">
           <ViewToggle
             view={view}
             onChange={setView}
@@ -86,39 +86,39 @@ export function UnitsGrid({
 
   if (isLoading) {
     return (
-      <div className={s.root}>
+      <div className="ul-grid-root">
         {controls}
-        <div className={s.grid}>{renderSkeletons()}</div>
+        <div className="ul-grid-grid">{renderSkeletons()}</div>
       </div>
     )
   }
 
   if (isError) {
     return (
-      <div className={s.root}>
+      <div className="ul-grid-root">
         {controls}
-        <div className={s.error}>{labels.retry}</div>
+        <div className="ul-grid-error">{labels.retry}</div>
       </div>
     )
   }
 
-  const limited = filteredUnits.slice(0, limit)
+  const limited = useMemo(() => filteredUnits.slice(0, limit), [filteredUnits, limit])
 
   return (
-    <div className={s.root}>
+    <div className="ul-grid-root">
       {controls}
 
       {limited.length === 0 ? (
-        <div className={s.empty}>
-          <p className={s.emptyTitle}>{labels.emptyTitle}</p>
+        <div className="ul-grid-empty">
+          <p className="ul-grid-empty-title">{labels.emptyTitle}</p>
           {hasActiveFilters && (
-            <button type="button" className={s.emptyClear} onClick={clearAll}>
+            <button type="button" className="ul-grid-empty-clear" onClick={clearAll}>
               {labels.clearFilters}
             </button>
           )}
         </div>
       ) : view === 'cards' ? (
-        <div className={s.grid}>{limited.map(renderCard)}</div>
+        <div className="ul-grid-grid">{limited.map(renderCard)}</div>
       ) : (
         renderTable(limited)
       )}

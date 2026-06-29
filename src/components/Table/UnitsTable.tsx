@@ -6,7 +6,7 @@ import { useId, useMemo, useState } from 'react'
 import { useUnitsListingConfig } from '../../context/UnitsListingContext'
 import type { Unit } from '../../types/unit'
 import { formatUSD } from '../../utils/formatPrice'
-import s from './UnitsTable.module.css'
+import './UnitsTable.css'
 
 type SortKey = 'unit' | 'beds' | 'baths' | 'price'
 type SortDir = 'asc' | 'desc'
@@ -120,9 +120,9 @@ function formatPriceCell(priceNet: number | null, priceGross: number | null) {
   const gross = priceGross !== priceNet ? priceGross : null
 
   return (
-    <div className={s.priceContainer}>
-      {gross != null && <span className={s.priceGross}>{formatUSD(gross)}</span>}
-      {net != null && <span className={s.priceNet}>{formatUSD(net)}</span>}
+    <div className="ul-table-price-container">
+      {gross != null && <span className="ul-table-price-gross">{formatUSD(gross)}</span>}
+      {net != null && <span className="ul-table-price-net">{formatUSD(net)}</span>}
     </div>
   )
 }
@@ -144,8 +144,8 @@ export function UnitsTable({ units }: Props) {
   }
 
   return (
-    <div className={s.scroll}>
-      <table className={s.table}>
+    <div className="ul-table-scroll">
+      <table className="ul-table-table">
         <thead>
           <tr>
             {COLUMNS.map((col) => {
@@ -154,27 +154,27 @@ export function UnitsTable({ units }: Props) {
                 <th
                   key={col.key}
                   className={clsx(
-                    s.th,
-                    col.align === 'right' && s.alignRight,
-                    col.align === 'center' && s.alignCenter,
-                    col.mobileHide && s.hideMobile
+                    'ul-table-th',
+                    col.align === 'right' && 'ul-table-align-right',
+                    col.align === 'center' && 'ul-table-align-center',
+                    col.mobileHide && 'ul-table-hide-mobile'
                   )}
                   aria-sort={isActive ? (sort.dir === 'asc' ? 'ascending' : 'descending') : 'none'}
                 >
                   <button
                     type="button"
-                    className={clsx(s.headerBtn, isActive && s.headerBtnActive)}
+                    className={clsx('ul-table-header-btn', isActive && 'ul-table-header-btn-active')}
                     onClick={() => handleHeaderClick(col.key)}
                   >
                     <span
-                      className={clsx(s.caret, isActive && s.active, isActive && sort.dir === 'desc' && s.caretDown)}
+                      className={clsx('ul-table-caret', isActive && 'ul-table-active', isActive && sort.dir === 'desc' && 'ul-table-caret-down')}
                       aria-hidden="true"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path className={s.down} d="M8.75 13.75L6.25 16.25L3.75 13.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path className={s.down} d="M6.25 3.75V16.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path className={s.up} d="M11.25 6.25L13.75 3.75L16.25 6.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        <path className={s.up} d="M13.75 16.25V3.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path className="ul-table-down" d="M8.75 13.75L6.25 16.25L3.75 13.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path className="ul-table-down" d="M6.25 3.75V16.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path className="ul-table-up" d="M11.25 6.25L13.75 3.75L16.25 6.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path className="ul-table-up" d="M13.75 16.25V3.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                     <span>{col.label}</span>
@@ -182,43 +182,43 @@ export function UnitsTable({ units }: Props) {
                 </th>
               )
             })}
-            <th className={clsx(s.th, s.actionTh)} aria-label="Actions" />
+            <th className={clsx('ul-table-th', 'ul-table-action-th')} aria-label="Actions" />
           </tr>
         </thead>
         <tbody>
           {sortedUnits.map((unit) => (
-            <tr key={unit.id} className={s.row}>
-              <td className={clsx(s.td, s.unitCell)}>{unit.unitNumber || '—'}</td>
-              <td className={s.td}>
-                <span className={s.hideMobile}>{getTypeLabel(unit.beds)}</span>
-                <div className={clsx(s.mobileBedBath, s.hideDesktop)}>
-                  <div className={s.mobileBedRow}>
+            <tr key={unit.id} className="ul-table-row">
+              <td className={clsx('ul-table-td', 'ul-table-unit-cell')}>{unit.unitNumber || '—'}</td>
+              <td className="ul-table-td">
+                <span className="ul-table-hide-mobile">{getTypeLabel(unit.beds)}</span>
+                <div className={clsx('ul-table-mobile-bed-bath', 'ul-table-hide-desktop')}>
+                  <div className="ul-table-mobile-bed-row">
                     {unit.beds === 0 ? (
                       <span>Studio</span>
                     ) : (
                       <>
                         <span>{unit.beds}</span>
-                        <BedIcon className={s.mobileTypeIcon} />
+                        <BedIcon className="ul-table-mobile-type-icon" />
                       </>
                     )}
                   </div>
-                  <div className={s.mobileBathRow}>
+                  <div className="ul-table-mobile-bath-row">
                     <span>{unit.baths}</span>
-                    <BathIcon className={s.mobileTypeIcon} />
+                    <BathIcon className="ul-table-mobile-type-icon" />
                   </div>
                 </div>
               </td>
-              <td className={clsx(s.td, s.hideMobile)}>
-                <div className={s.bathContainer}>
+              <td className={clsx('ul-table-td', 'ul-table-hide-mobile')}>
+                <div className="ul-table-bath-container">
                   {unit.baths}
-                  <BathIcon className={s.bathIcon} />
+                  <BathIcon className="ul-table-bath-icon" />
                 </div>
               </td>
-              <td className={clsx(s.td, s.priceCell)}>
+              <td className={clsx('ul-table-td', 'ul-table-price-cell')}>
                 {formatPriceCell(unit.price.net, unit.price.gross)}
               </td>
-              <td className={clsx(s.td, s.actionTd)}>
-                <div className={s.actionWrapper}>
+              <td className={clsx('ul-table-td', 'ul-table-action-td')}>
+                <div className="ul-table-action-wrapper">
                   {unit.floorPlanUrl && (
                     <a
                       title="Download floor plan"
@@ -226,19 +226,19 @@ export function UnitsTable({ units }: Props) {
                       href={unit.floorPlanUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={s.downloadBtn}
+                      className="ul-table-download-btn"
                     >
-                      <FloorPlanIcon className={s.floorPlanIcon} />
+                      <FloorPlanIcon className="ul-table-floor-plan-icon" />
                     </a>
                   )}
                   <button
                     type="button"
-                    className={s.bookTourBtn}
+                    className="ul-table-book-tour-btn"
                     onClick={() => handleBookTour(unit)}
                     aria-label={`Book a tour for unit ${unit.unitNumber}`}
                   >
-                    <BookTourIcon className={s.bookTourIcon} />
-                    <span className={s.btnText}>{labels.bookTour}</span>
+                    <BookTourIcon className="ul-table-book-tour-icon" />
+                    <span className="ul-table-btn-text">{labels.bookTour}</span>
                   </button>
                 </div>
               </td>

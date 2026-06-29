@@ -1,5 +1,5 @@
 'use client'
-import { useMemo, type CSSProperties } from 'react'
+import { useCallback, useMemo, type CSSProperties } from 'react'
 import { UnitsListingProvider } from '../context/UnitsListingContext'
 import { UnitsGrid } from '../components/Grid/UnitsGrid'
 import { UnitCard } from '../components/Card/UnitCard'
@@ -32,20 +32,44 @@ export function UnitsListing({
     ...(themeVars ?? {}),
   }), [theme, themeVars]) as CSSProperties
 
+  const rootStyle = useMemo(
+    () => ({ ...themeStyle, ...style }),
+    [themeStyle, style]
+  )
+
+  const providerValue = useMemo(
+    () => ({ labels, ImageComponent, motion, pageSize, skeletonCount, priceStep, onBookTour, renderBookTourModal }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [labels, ImageComponent, motion, pageSize, skeletonCount, priceStep, onBookTour, renderBookTourModal]
+  )
+
+  const renderCard = useCallback(
+    (unit: Parameters<typeof UnitCard>[0]['unit']) => <UnitCard key={unit.id} unit={unit} />,
+    []
+  )
+
+  const renderSkeletons = useCallback(
+    () => Array.from({ length: skeletonCount }, (_, i) => <CardSkeleton key={i} />),
+    [skeletonCount]
+  )
+
+  const renderTable = useCallback(
+    (u: Parameters<typeof UnitsTable>[0]['units']) => <UnitsTable units={u} />,
+    []
+  )
+
   return (
-    <UnitsListingProvider
-      value={{ labels, ImageComponent, motion, pageSize, skeletonCount, priceStep, onBookTour, renderBookTourModal }}
-    >
-      <div className={clsx('ul-root', className)} style={{ ...themeStyle, ...style }}>
+    <UnitsListingProvider value={providerValue}>
+      <div className={clsx('ul-root', className)} style={rootStyle}>
         <UnitsGrid
           units={units}
           isLoading={isLoading ?? false}
           isError={isError ?? false}
           header={header}
           pageSize={pageSize}
-          renderCard={(unit) => <UnitCard key={unit.id} unit={unit} />}
-          renderSkeletons={() => Array.from({ length: skeletonCount }, (_, i) => <CardSkeleton key={i} />)}
-          renderTable={(u) => <UnitsTable units={u} />}
+          renderCard={renderCard}
+          renderSkeletons={renderSkeletons}
+          renderTable={renderTable}
         />
       </div>
     </UnitsListingProvider>

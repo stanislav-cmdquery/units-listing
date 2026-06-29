@@ -1,4 +1,4 @@
-.overlay {
+.ul-enlarged-overlay {
   position: fixed;
   inset: 0;
   background-color: var(--ul-color-overlay);
@@ -9,7 +9,7 @@
   padding: 16px;
 }
 
-.popup {
+.ul-enlarged-popup {
   width: 900px;
   max-width: 100%;
   height: 800px;
@@ -22,7 +22,7 @@
   color: var(--ul-color-text-secondary);
 }
 
-.top {
+.ul-enlarged-top {
   width: 100%;
   display: flex;
   align-items: center;
@@ -33,14 +33,14 @@
   flex-shrink: 0;
 }
 
-.topLeft {
+.ul-enlarged-top-left {
   display: flex;
   align-items: center;
   gap: var(--ul-space-2);
   min-width: 0;
 }
 
-.priceNet {
+.ul-enlarged-price-net {
   color: var(--ul-color-price-text);
   font-size: var(--ul-font-size-xl);
   font-style: normal;
@@ -56,16 +56,16 @@
   flex-shrink: 0;
 }
 
-button.priceNet {
+button.ul-enlarged-price-net {
   cursor: pointer;
   transition: background-color var(--ul-transition);
 }
 
-button.priceNet:hover {
+button.ul-enlarged-price-net:hover {
   background-color: rgba(229, 207, 180, 0.7);
 }
 
-.closeBtn {
+.ul-enlarged-close-btn {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -81,15 +81,15 @@ button.priceNet:hover {
   transition: background-color var(--ul-transition);
 }
 
-.closeBtn:hover {
+.ul-enlarged-close-btn:hover {
   background-color: rgba(202, 188, 180, 0.6);
 }
 
-.closeBtn:active {
+.ul-enlarged-close-btn:active {
   background-color: rgba(254, 243, 229, 0.8);
 }
 
-.center {
+.ul-enlarged-center {
   flex: 1;
   position: relative;
   overflow: hidden;
@@ -97,7 +97,7 @@ button.priceNet:hover {
   min-height: 0;
 }
 
-.track {
+.ul-enlarged-track {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -106,21 +106,21 @@ button.priceNet:hover {
   will-change: transform;
 }
 
-.slide {
+.ul-enlarged-slide {
   position: relative;
   flex: 0 0 100%;
   height: 100%;
 }
 
-.image {
+.ul-enlarged-image {
   object-fit: contain;
 }
 
-.floorPlanImage {
+.ul-enlarged-floor-plan-image {
   object-fit: contain;
 }
 
-.pdfPlaceholder {
+.ul-enlarged-pdf-placeholder {
   position: absolute;
   inset: 0;
   display: flex;
@@ -131,7 +131,7 @@ button.priceNet:hover {
   color: #f6f3ef;
 }
 
-.pdfLabel {
+.ul-enlarged-pdf-label {
   font-family: var(--ul-font-family);
   font-size: var(--ul-font-size-base);
   font-weight: var(--ul-font-weight-medium);
@@ -139,7 +139,7 @@ button.priceNet:hover {
   text-transform: uppercase;
 }
 
-.pdfDownload {
+.ul-enlarged-pdf-download {
   display: flex;
   align-items: center;
   gap: var(--ul-space-2);
@@ -155,11 +155,11 @@ button.priceNet:hover {
   transition: background-color var(--ul-transition);
 }
 
-.pdfDownload:hover {
+.ul-enlarged-pdf-download:hover {
   background-color: rgba(229, 207, 180, 0.7);
 }
 
-.bottom {
+.ul-enlarged-bottom {
   width: 100%;
   display: flex;
   align-items: center;
@@ -170,18 +170,18 @@ button.priceNet:hover {
   flex-shrink: 0;
 }
 
-.bottomLeft {
+.ul-enlarged-bottom-left {
   display: flex;
   align-items: center;
   gap: var(--ul-space-1);
 }
 
-.navRow {
+.ul-enlarged-nav-row {
   display: flex;
   gap: var(--ul-space-2);
 }
 
-.navBtn {
+.ul-enlarged-nav-btn {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -199,38 +199,38 @@ button.priceNet:hover {
     transform var(--ul-transition);
 }
 
-.navBtn:hover:not(:disabled) {
+.ul-enlarged-nav-btn:hover:not(:disabled) {
   background-color: var(--ul-color-surface-alt);
 }
 
-.navBtn:active:not(:disabled) {
+.ul-enlarged-nav-btn:active:not(:disabled) {
   transform: scale(0.94);
   background-color: rgba(254, 243, 229, 0.8);
 }
 
-.navBtn:disabled {
+.ul-enlarged-nav-btn:disabled {
   cursor: default;
   background-color: transparent;
   color: var(--ul-color-text-subtle);
 }
 
-.mobileClose,
-.mobileNav {
+.ul-enlarged-mobile-close,
+.ul-enlarged-mobile-nav {
   display: none;
 }
 
-.bookModalPlaceholder {
+.ul-enlarged-book-modal-placeholder {
   display: none;
 }
 
 @media (max-width: 767px) {
-  .overlay {
+  .ul-enlarged-overlay {
     padding: 0;
     align-items: stretch;
     background-color: rgba(0, 0, 0, 0.85);
   }
 
-  .popup {
+  .ul-enlarged-popup {
     width: 100%;
     height: 100dvh;
     max-height: 100dvh;
@@ -240,19 +240,19 @@ button.priceNet:hover {
     justify-content: center;
   }
 
-  .top,
-  .bottom {
+  .ul-enlarged-top,
+  .ul-enlarged-bottom {
     display: none;
   }
 
-  .center {
+  .ul-enlarged-center {
     flex: 0 0 auto;
     height: 60dvh;
     min-height: unset;
     padding: 0 16px;
   }
 
-  .mobileClose {
+  .ul-enlarged-mobile-close {
     display: flex;
     position: absolute;
     top: 20px;
@@ -270,14 +270,14 @@ button.priceNet:hover {
     backdrop-filter: blur(4px);
   }
 
-  .mobileNav {
+  .ul-enlarged-mobile-nav {
     display: flex;
     justify-content: space-between;
     padding: 24px 16px;
     flex-shrink: 0;
   }
 
-  .mobileNavBtn {
+  .ul-enlarged-mobile-nav-btn {
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -294,26 +294,26 @@ button.priceNet:hover {
       opacity var(--ul-transition);
   }
 
-  .mobileNavBtn:disabled {
+  .ul-enlarged-mobile-nav-btn:disabled {
     opacity: 0.25;
     cursor: default;
   }
 }
 
 @media (min-width: 768px) {
-  .center {
+  .ul-enlarged-center {
     background-color: var(--ul-color-bg);
   }
 
-  .image {
+  .ul-enlarged-image {
     object-fit: cover;
   }
 
-  .floorPlanImage {
+  .ul-enlarged-floor-plan-image {
     object-fit: contain;
   }
 
-  .pdfPlaceholder {
+  .ul-enlarged-pdf-placeholder {
     color: var(--ul-color-price-text);
   }
 }

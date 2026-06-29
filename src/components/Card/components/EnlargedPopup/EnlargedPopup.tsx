@@ -10,7 +10,7 @@ import { BottomActions } from '../BottomActions/BottomActions'
 import { ConcessionPopup } from '../ConcessionPopup/ConcessionPopup'
 import { CopyButton } from '../CopyButton/CopyButton'
 import { UnitParams } from '../UnitParams/UnitParams'
-import s from './EnlargedPopup.module.css'
+import './EnlargedPopup.css'
 
 type Slide = { src: string; enlargedSrc?: string; kind: 'plan' | 'photo' }
 
@@ -98,9 +98,9 @@ export function EnlargedPopup({
   }
 
   return createPortal(
-    <div className={s.overlay} onClick={onClose}>
-      <div className={s.popup} onClick={(e) => e.stopPropagation()}>
-        <button type="button" className={s.mobileClose} onClick={onClose} aria-label="Close enlarged view">
+    <div className="ul-enlarged-overlay" onClick={onClose}>
+      <div className="ul-enlarged-popup" onClick={(e) => e.stopPropagation()}>
+        <button type="button" className="ul-enlarged-mobile-close" onClick={onClose} aria-label="Close enlarged view">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
             <path
               d="M12 36L36 12"
@@ -119,14 +119,14 @@ export function EnlargedPopup({
           </svg>
         </button>
 
-        <div className={s.top}>
-          <div className={s.topLeft}>
+        <div className="ul-enlarged-top">
+          <div className="ul-enlarged-top-left">
             <UnitParams unitNumber={unitNumber} beds={beds} baths={baths} />
 
             {priceNet != null ? (
               <button
                 type="button"
-                className={s.priceNet}
+                className="ul-enlarged-price-net"
                 onClick={() => setShowPriceInfo((p) => !p)}
                 aria-expanded={showPriceInfo}
                 aria-label="Show concession details"
@@ -134,15 +134,15 @@ export function EnlargedPopup({
                 {formatUSD(priceNet)}*
               </button>
             ) : priceGross != null ? (
-              <span className={s.priceNet}>{formatUSD(priceGross)}</span>
+              <span className="ul-enlarged-price-net">{formatUSD(priceGross)}</span>
             ) : (
-              <span className={s.priceNet}>On request</span>
+              <span className="ul-enlarged-price-net">On request</span>
             )}
 
             <CopyButton unitNumber={unitNumber} beds={beds} baths={baths} priceNet={priceNet} priceGross={priceGross} />
           </div>
 
-          <button type="button" className={s.closeBtn} onClick={onClose} aria-label="Close enlarged view">
+          <button type="button" className="ul-enlarged-close-btn" onClick={onClose} aria-label="Close enlarged view">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
               <path d="M6.5 19.5L19.5 6.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M19.5 19.5L6.5 6.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
@@ -151,7 +151,7 @@ export function EnlargedPopup({
         </div>
 
         <div
-          className={s.center}
+          className="ul-enlarged-center"
           onTouchStart={(e) => {
             touchStartX.current = e.touches[0].clientX
           }}
@@ -165,7 +165,7 @@ export function EnlargedPopup({
           }}
         >
           <MotionDiv
-            className={s.track}
+            className="ul-enlarged-track"
             animate={{ x: `${-slideIndex * 100}%` }}
             transition={{ type: 'spring', stiffness: 260, damping: 32, mass: 0.6 } as object}
           >
@@ -173,9 +173,9 @@ export function EnlargedPopup({
               const displaySrc = slide.enlargedSrc ?? slide.src
               const pdf = slide.kind === 'plan' && isPdf(displaySrc)
               return (
-                <div key={idx} className={s.slide} aria-hidden={idx !== slideIndex}>
+                <div key={idx} className="ul-enlarged-slide" aria-hidden={idx !== slideIndex}>
                   {pdf ? (
-                    <div className={s.pdfPlaceholder}>
+                    <div className="ul-enlarged-pdf-placeholder">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="64"
@@ -199,13 +199,13 @@ export function EnlargedPopup({
                           PDF
                         </text>
                       </svg>
-                      <span className={s.pdfLabel}>Floor plan</span>
+                      <span className="ul-enlarged-pdf-label">Floor plan</span>
                       <a
                         href={displaySrc}
                         target="_blank"
                         rel="noopener noreferrer"
                         download
-                        className={s.pdfDownload}
+                        className="ul-enlarged-pdf-download"
                       >
                         Download PDF
                       </a>
@@ -216,7 +216,7 @@ export function EnlargedPopup({
                       alt={slide.kind === 'plan' ? 'Floor plan' : `Unit photo ${idx}`}
                       fill
                       sizes="900px"
-                      className={clsx(s.image, idx === 0 && s.floorPlanImage)}
+                      className={clsx('ul-enlarged-image', idx === 0 && 'ul-enlarged-floor-plan-image')}
                     />
                   )}
                 </div>
@@ -238,10 +238,10 @@ export function EnlargedPopup({
         </div>
 
         {hasCarousel && (
-          <div className={s.mobileNav}>
+          <div className="ul-enlarged-mobile-nav">
             <button
               type="button"
-              className={s.mobileNavBtn}
+              className="ul-enlarged-mobile-nav-btn"
               onClick={onPrev}
               disabled={!canPrev}
               aria-label="Previous image"
@@ -265,7 +265,7 @@ export function EnlargedPopup({
             </button>
             <button
               type="button"
-              className={s.mobileNavBtn}
+              className="ul-enlarged-mobile-nav-btn"
               onClick={onNext}
               disabled={!canNext}
               aria-label="Next image"
@@ -290,16 +290,16 @@ export function EnlargedPopup({
           </div>
         )}
 
-        <div className={s.bottom}>
-          <div className={s.bottomLeft}>
+        <div className="ul-enlarged-bottom">
+          <div className="ul-enlarged-bottom-left">
             <BottomActions onBookTour={handleBookTour} floorPlanHref={floorPlanHref} />
           </div>
 
           {hasCarousel && (
-            <div className={s.navRow}>
+            <div className="ul-enlarged-nav-row">
               <button
                 type="button"
-                className={s.navBtn}
+                className="ul-enlarged-nav-btn"
                 onClick={onPrev}
                 disabled={!canPrev}
                 aria-label="Previous image"
@@ -321,7 +321,7 @@ export function EnlargedPopup({
                   />
                 </svg>
               </button>
-              <button type="button" className={s.navBtn} onClick={onNext} disabled={!canNext} aria-label="Next image">
+              <button type="button" className="ul-enlarged-nav-btn" onClick={onNext} disabled={!canNext} aria-label="Next image">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M5 12H19"
@@ -344,7 +344,7 @@ export function EnlargedPopup({
         </div>
 
         {showBookModal && renderBookTourModal == null && (
-          <div className={s.bookModalPlaceholder} />
+          <div className="ul-enlarged-book-modal-placeholder" />
         )}
       </div>
     </div>,

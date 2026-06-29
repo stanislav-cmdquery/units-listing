@@ -7,7 +7,7 @@ import { useClickOutside } from '../../hooks/useClickOutside'
 import { ButtonGroup } from '../../ui/ButtonGroup/ButtonGroup'
 import type { BathFilter, OutdoorFilter } from '../../hooks/useUnitsFilter'
 import { ArrowDown } from './ArrowDown'
-import s from './FiltersDropdown.module.css'
+import './FiltersDropdown.css'
 
 function capitalise(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
@@ -70,40 +70,40 @@ export function FiltersDropdown({
   }
 
   return (
-    <div ref={rootRef} className={s.root}>
+    <div ref={rootRef} className="ul-filters-root">
       <button
         type="button"
-        className={clsx(s.trigger, isActive && s.triggerActive)}
+        className={clsx('ul-filters-trigger', isActive && 'ul-filters-trigger-active')}
         onClick={() => setIsOpen((v) => !v)}
         aria-expanded={isOpen}
         aria-label="Open filters"
       >
         Filters
-        <ArrowDown className={clsx(s.arrowDown, isOpen && s.arrowDownActive)} />
+        <ArrowDown className={clsx('ul-filters-arrow-down', isOpen && 'ul-filters-arrow-down-active')} />
       </button>
 
       {isOpen && (
-        <div className={s.panel}>
-          <div className={s.section}>
-            <div className={s.sectionLabel}>Bathrooms</div>
+        <div className="ul-filters-panel">
+          <div className="ul-filters-section">
+            <div className="ul-filters-section-label">Bathrooms</div>
             <ButtonGroup
               options={bathButtonOptions}
               value={bathFilter}
               onChange={onBathChange}
-              className={s.bathGroup}
+              className="ul-filters-bath-group"
             />
           </div>
 
-          <div className={s.section}>
-            <div className={s.sectionLabel}>Price</div>
-            <div className={s.priceRow}>
-              <div className={s.priceInputWrapper}>
-                <span className={s.pricePrefix} aria-hidden="true">
+          <div className="ul-filters-section">
+            <div className="ul-filters-section-label">Price</div>
+            <div className="ul-filters-price-row">
+              <div className="ul-filters-price-input-wrapper">
+                <span className="ul-filters-price-prefix" aria-hidden="true">
                   $
                 </span>
                 <input
                   type="number"
-                  className={s.priceInput}
+                  className="ul-filters-price-input"
                   placeholder="Min"
                   value={priceMinStr}
                   onChange={(e) => onPriceMinChange(e.target.value)}
@@ -111,14 +111,14 @@ export function FiltersDropdown({
                   aria-label="Minimum price"
                 />
               </div>
-              <div className={s.priceSeparator} aria-hidden="true" />
-              <div className={s.priceInputWrapper}>
-                <span className={s.pricePrefix} aria-hidden="true">
+              <div className="ul-filters-price-separator" aria-hidden="true" />
+              <div className="ul-filters-price-input-wrapper">
+                <span className="ul-filters-price-prefix" aria-hidden="true">
                   $
                 </span>
                 <input
                   type="number"
-                  className={s.priceInput}
+                  className="ul-filters-price-input"
                   placeholder="Max"
                   value={priceMaxStr}
                   onChange={(e) => onPriceMaxChange(e.target.value)}
@@ -130,16 +130,16 @@ export function FiltersDropdown({
           </div>
 
           {outdoorOptions.length > 0 && (
-            <div className={s.section}>
-              <div className={s.sectionLabel}>Outdoor Space</div>
-              <div className={s.outdoorGroup}>
+            <div className="ul-filters-section">
+              <div className="ul-filters-section-label">Outdoor Space</div>
+              <div className="ul-filters-outdoor-group">
                 {outdoorOptions.map((v) => {
                   const active = outdoorFilter.includes(v)
                   return (
                     <button
                       key={v}
                       type="button"
-                      className={clsx(s.outdoorItem, active && s.outdoorItemActive)}
+                      className={clsx('ul-filters-outdoor-item', active && 'ul-filters-outdoor-item-active')}
                       aria-pressed={active}
                       onClick={() => onToggleOutdoor(v)}
                     >
@@ -151,7 +151,7 @@ export function FiltersDropdown({
             </div>
           )}
 
-          <button type="button" className={s.clearBtn} onClick={handleClear}>
+          <button type="button" className="ul-filters-clear-btn" onClick={handleClear}>
             Clear
           </button>
         </div>

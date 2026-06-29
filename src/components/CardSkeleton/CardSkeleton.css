@@ -1,4 +1,4 @@
-.root {
+.ul-skeleton-root {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   position: relative;
 }
 
-.top {
+.ul-skeleton-top {
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,53 +17,53 @@
   background-color: var(--ul-color-bg);
 }
 
-.params {
+.ul-skeleton-params {
   display: flex;
   align-items: center;
   gap: var(--ul-space-2);
   flex: 1;
 }
 
-.pill {
+.ul-skeleton-pill {
   height: 18px;
   border-radius: 6px;
 }
 
-.unitPill {
+.ul-skeleton-unit-pill {
   width: 36px;
 }
 
-.iconPill {
+.ul-skeleton-icon-pill {
   width: 44px;
 }
 
-.pricePill {
+.ul-skeleton-price-pill {
   height: 26px;
   width: 84px;
   border-radius: var(--ul-radius-xs);
   margin-left: auto;
 }
 
-.copyPill {
+.ul-skeleton-copy-pill {
   width: 22px;
   height: 22px;
   border-radius: 6px;
 }
 
-.center {
+.ul-skeleton-center {
   width: 100%;
   height: 360px;
   position: relative;
   overflow: hidden;
 }
 
-.centerInner {
+.ul-skeleton-center-inner {
   position: absolute;
   inset: 24px;
   border-radius: var(--ul-radius-sm);
 }
 
-.bottom {
+.ul-skeleton-bottom {
   width: 100%;
   display: flex;
   align-items: center;
@@ -73,19 +73,19 @@
   background-color: var(--ul-color-bg);
 }
 
-.actionPill {
+.ul-skeleton-action-pill {
   height: 22px;
   width: 96px;
   border-radius: 6px;
 }
 
-.shimmer {
+.ul-skeleton-shimmer {
   background: linear-gradient(90deg, var(--ul-color-skeleton) 0%, var(--ul-color-skeleton-shine) 50%, var(--ul-color-skeleton) 100%);
   background-size: 200% 100%;
   animation: skeletonShimmer 1.4s ease-in-out infinite;
 }
 
-.shimmerSoft {
+.ul-skeleton-shimmer-soft {
   background: linear-gradient(90deg, #f0e8de 0%, #faf4ee 50%, #f0e8de 100%);
   background-size: 200% 100%;
   animation: skeletonShimmer 1.6s ease-in-out infinite;
@@ -101,64 +101,64 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .shimmer,
-  .shimmerSoft {
+  .ul-skeleton-shimmer,
+  .ul-skeleton-shimmer-soft {
     animation: none;
     background: var(--ul-color-skeleton-shine);
   }
 
-  .shimmerSoft {
+  .ul-skeleton-shimmer-soft {
     background: #f0e8de;
   }
 }
 
 @media (min-width: 768px) {
-  .top {
+  .ul-skeleton-top {
     padding: var(--ul-space-4);
     gap: var(--ul-space-2);
   }
 
-  .pill {
+  .ul-skeleton-pill {
     height: 20px;
   }
 
-  .pricePill {
+  .ul-skeleton-price-pill {
     height: 28px;
     width: 92px;
   }
 
-  .center {
+  .ul-skeleton-center {
     height: 420px;
   }
 
-  .bottom {
+  .ul-skeleton-bottom {
     padding: var(--ul-space-4);
     gap: 6px;
   }
 
-  .actionPill {
+  .ul-skeleton-action-pill {
     height: 24px;
     width: 104px;
   }
 }
 
 @media (min-width: 900px) {
-  .center {
+  .ul-skeleton-center {
     height: 360px;
   }
 
-  .bottom {
+  .ul-skeleton-bottom {
     padding: var(--ul-space-4);
     gap: var(--ul-space-2);
   }
 }
 
 @media (min-width: 1085px) {
-  .top {
+  .ul-skeleton-top {
     padding: var(--ul-space-4) var(--ul-space-5);
   }
 
-  .actionPill {
+  .ul-skeleton-action-pill {
     height: 22px;
     width: 96px;
   }

@@ -12,7 +12,7 @@ import { ConcessionPopup } from './components/ConcessionPopup/ConcessionPopup'
 import { CopyButton } from './components/CopyButton/CopyButton'
 import { EnlargedPopup } from './components/EnlargedPopup/EnlargedPopup'
 import { UnitParams } from './components/UnitParams/UnitParams'
-import s from './UnitCard.module.css'
+import './UnitCard.css'
 
 type Slide = { src: string; enlargedSrc?: string; kind: 'plan' | 'photo' }
 
@@ -74,16 +74,10 @@ function PriceInfoIcon({ className }: { className?: string }) {
 }
 
 function getClassNameByBeds(beds: number) {
-  switch (beds) {
-    case 0:
-      return s.studio
-    case 1:
-      return s.oneBed
-    case 2:
-      return s.twoBed
-    default:
-      return s.studio
-  }
+  if (beds === 0) return 'ul-card-beds-0'
+  if (beds === 1) return 'ul-card-beds-1'
+  if (beds === 2) return 'ul-card-beds-2'
+  return 'ul-card-beds-many'
 }
 
 type Props = {
@@ -144,37 +138,37 @@ export function UnitCard({ unit, className }: Props) {
   }
 
   return (
-    <MotionDiv className={clsx(s.root, className, getClassNameByBeds(beds), showPopup && s.infoOpen)}>
-      <div className={s.top}>
+    <MotionDiv className={clsx('ul-card-root', className, getClassNameByBeds(beds), showPopup && 'ul-card-info-open')}>
+      <div className="ul-card-top">
         <UnitParams unitNumber={unitNumber} beds={beds} baths={baths} />
 
         {priceNet != null ? (
           <button
             type="button"
-            className={s.priceNet}
+            className="ul-card-price-net"
             onClick={() => setShowPopup((prev) => !prev)}
             aria-expanded={showPopup}
             aria-label="Show concession details"
           >
-            {formatUSD(priceNet)} <PriceInfoIcon className={s.priceInfoIcon} />
+            {formatUSD(priceNet)} <PriceInfoIcon className="ul-card-price-info-icon" />
           </button>
         ) : priceGross != null ? (
-          <span className={s.priceNet}>{formatUSD(priceGross)}</span>
+          <span className="ul-card-price-net">{formatUSD(priceGross)}</span>
         ) : (
-          <span className={clsx(s.priceNet, s.onRequest)}>On request</span>
+          <span className={clsx('ul-card-price-net', 'ul-card-on-request')}>On request</span>
         )}
 
         <CopyButton unitNumber={unitNumber} beds={beds} baths={baths} priceNet={priceNet} priceGross={priceGross} />
       </div>
 
-      <div className={clsx(s.center, total > 1 && s.hasGallery)} style={{ '--aspect': aspect } as CSSProperties}>
+      <div className={clsx('ul-card-center', total > 1 && 'ul-card-has-gallery')} style={{ '--aspect': aspect } as CSSProperties}>
         {slides[safeIndex] && (
           <ImageComponent
             src={slides[safeIndex].src}
             alt={slides[safeIndex].kind === 'plan' ? 'Floor plan' : 'Photo'}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1440px) 33vw, 25vw"
-            className={s.image}
+            className="ul-card-image"
             onLoad={(e: React.SyntheticEvent<HTMLImageElement>) => {
               if (safeIndex !== 0) return
               const img = e.currentTarget
@@ -189,7 +183,7 @@ export function UnitCard({ unit, className }: Props) {
           <>
             <button
               type="button"
-              className={clsx(s.navButton, s.navPrev)}
+              className={clsx('ul-card-nav-button', 'ul-card-nav-prev')}
               onClick={goPrev}
               disabled={!canPrev}
               aria-label="Previous image"
@@ -206,7 +200,7 @@ export function UnitCard({ unit, className }: Props) {
             </button>
             <button
               type="button"
-              className={clsx(s.navButton, s.navNext)}
+              className={clsx('ul-card-nav-button', 'ul-card-nav-next')}
               onClick={goNext}
               disabled={!canNext}
               aria-label="Next image"
@@ -221,12 +215,12 @@ export function UnitCard({ unit, className }: Props) {
                 />
               </svg>
             </button>
-            <div className={s.dots}>
+            <div className="ul-card-dots">
               {slides.map((_, i) => (
                 <button
                   key={i}
                   type="button"
-                  className={clsx(s.dot, i === safeIndex && s.dotActive)}
+                  className={clsx('ul-card-dot', i === safeIndex && 'ul-card-dot-active')}
                   onClick={() => goTo(i)}
                   aria-label={`Go to image ${i + 1}`}
                 />
@@ -249,16 +243,16 @@ export function UnitCard({ unit, className }: Props) {
 
         <button
           type="button"
-          className={s.enlargeButton}
+          className="ul-card-enlarge-button"
           aria-label="Enlarge"
           onClick={() => setShowEnlarged(true)}
         >
-          <span className={s.enlargeText}>Open full size</span>
-          <EnlargeIcon className={s.enlargeIcon} />
+          <span className="ul-card-enlarge-text">Open full size</span>
+          <EnlargeIcon className="ul-card-enlarge-icon" />
         </button>
       </div>
 
-      <div className={s.bottom}>
+      <div className="ul-card-bottom">
         <BottomActions onBookTour={handleBookTour} floorPlanHref={floorPlanUrl} />
       </div>
 

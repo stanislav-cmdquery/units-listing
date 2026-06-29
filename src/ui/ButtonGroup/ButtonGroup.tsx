@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 
-import s from './ButtonGroup.module.css'
+import './ButtonGroup.css'
 
 type Option<T extends string | number> = {
   value: T
@@ -18,12 +18,12 @@ type Props<T extends string | number> = {
 
 export function ButtonGroup<T extends string | number>({ options, value, onChange, className }: Props<T>) {
   return (
-    <div className={clsx(s.root, className)}>
+    <div className={clsx('ul-btn-group-root', className)}>
       {options.map((option) => (
         <button
           key={String(option.value)}
           type="button"
-          className={clsx(s.item, value === option.value && s.active)}
+          className={clsx('ul-btn-group-item', value === option.value && 'ul-btn-group-active')}
           onClick={() => onChange(option.value)}
           aria-pressed={value === option.value}
         >

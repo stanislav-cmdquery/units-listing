@@ -1,11 +1,11 @@
-.root {
+.ul-btn-group-root {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 2px;
 }
 
-.item {
+.ul-btn-group-item {
   font-family: var(--ul-font-family);
   min-width: 50px;
   height: 40px;
@@ -27,11 +27,11 @@
   cursor: pointer;
 }
 
-.item:hover:not(.active) {
+.ul-btn-group-item:hover:not(.ul-btn-group-active) {
   background-color: rgba(45, 35, 46, 0.08);
 }
 
-.active {
+.ul-btn-group-active {
   background-color: var(--ul-color-price-text);
   border-color: var(--ul-color-price-text);
   color: var(--ul-color-accent-contrast);

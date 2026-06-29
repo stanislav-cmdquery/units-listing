@@ -1,7 +1,7 @@
 'use client'
 
 import { useUnitsListingConfig } from '../../../../context/UnitsListingContext'
-import s from './BottomActions.module.css'
+import './BottomActions.css'
 
 type Props = {
   onBookTour: () => void
@@ -14,7 +14,7 @@ export function BottomActions({ onBookTour, floorPlanHref }: Props) {
   return (
     <>
       <div
-        className={s.bookTour}
+        className="ul-bottom-actions-book-tour"
         onClick={onBookTour}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -39,10 +39,10 @@ export function BottomActions({ onBookTour, floorPlanHref }: Props) {
             fill="currentColor"
           />
         </svg>
-        <div className={s.text}>{labels.bookTour}</div>
+        <div className="ul-bottom-actions-text">{labels.bookTour}</div>
       </div>
 
-      <div className={s.floorPlans}>
+      <div className="ul-bottom-actions-floor-plans">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
           <path
             d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10"
@@ -61,11 +61,11 @@ export function BottomActions({ onBookTour, floorPlanHref }: Props) {
           <path d="M8 10V2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         {floorPlanHref ? (
-          <a href={floorPlanHref} target="_blank" rel="noopener noreferrer" className={s.text}>
+          <a href={floorPlanHref} target="_blank" rel="noopener noreferrer" className="ul-bottom-actions-text">
             Floor plans
           </a>
         ) : (
-          <div className={s.text}>Floor plans</div>
+          <div className="ul-bottom-actions-text">Floor plans</div>
         )}
       </div>
     </>

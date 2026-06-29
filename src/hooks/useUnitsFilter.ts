@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import type { Unit } from '../types/unit'
 
@@ -67,9 +67,9 @@ export function useUnitsFilter(units: Unit[], priceStep = 50) {
   }
   const clearDropdown = clearAll
 
-  const toggleOutdoor = (v: string) => {
+  const toggleOutdoor = useCallback((v: string) => {
     setOutdoorFilter((prev) => (prev.includes(v) ? prev.filter((x) => x !== v) : [...prev, v]))
-  }
+  }, [])
 
   return {
     bathFilter,

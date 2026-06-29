@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom'
 
 import { useBodyOverflow } from '../../hooks/useBodyOverflow'
 import { formatUSD } from '../../utils/formatPrice'
-import s from './FiltersModal.module.css'
+import './FiltersModal.css'
 
 export type FiltersModalFilters = {
   beds: number[]
@@ -100,38 +100,38 @@ export function FiltersModal({
   const sliderDisabled = range <= 0
 
   return createPortal(
-    <div className={s.backdrop} onClick={onClose} role="dialog" aria-modal="true" aria-label="Filter units">
-      <div className={s.modal} onClick={(e) => e.stopPropagation()}>
-        <button type="button" className={s.closeButton} onClick={onClose} aria-label="Close">
+    <div className="ul-filters-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label="Filter units">
+      <div className="ul-filters-modal-modal" onClick={(e) => e.stopPropagation()}>
+        <button type="button" className="ul-filters-modal-close-button" onClick={onClose} aria-label="Close">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </button>
 
-        <div className={s.header}>
-          <h2 className={s.title}>Refine your search.</h2>
-          <p className={s.subtitle}>Adjust the filters below to find your perfect home.</p>
+        <div className="ul-filters-modal-header">
+          <h2 className="ul-filters-modal-title">Refine your search.</h2>
+          <p className="ul-filters-modal-subtitle">Adjust the filters below to find your perfect home.</p>
         </div>
 
-        <div className={s.body}>
-          <section className={s.section}>
-            <div className={s.sectionHead}>
-              <div className={s.label}>Bedrooms</div>
+        <div className="ul-filters-modal-body">
+          <section className="ul-filters-modal-section">
+            <div className="ul-filters-modal-section-head">
+              <div className="ul-filters-modal-label">Bedrooms</div>
               {draftBeds.length > 0 && (
-                <button type="button" className={s.sectionClear} onClick={() => setDraftBeds([])}>
+                <button type="button" className="ul-filters-modal-section-clear" onClick={() => setDraftBeds([])}>
                   Clear
                 </button>
               )}
             </div>
             {bedOptions.length > 0 ? (
-              <div className={s.chipGroup} role="group" aria-label="Filter by bedrooms">
+              <div className="ul-filters-modal-chip-group" role="group" aria-label="Filter by bedrooms">
                 {bedOptions.map((bed) => {
                   const selected = draftBeds.includes(bed)
                   return (
                     <button
                       key={bed}
                       type="button"
-                      className={clsx(s.chip, selected && s.chipSelected)}
+                      className={clsx('ul-filters-modal-chip', selected && 'ul-filters-modal-chip-selected')}
                       onClick={() => toggleBed(bed)}
                       aria-pressed={selected}
                     >
@@ -141,17 +141,17 @@ export function FiltersModal({
                 })}
               </div>
             ) : (
-              <div className={s.empty}>No bedroom options available.</div>
+              <div className="ul-filters-modal-empty">No bedroom options available.</div>
             )}
           </section>
 
-          <section className={s.section}>
-            <div className={s.sectionHead}>
-              <div className={s.label}>Monthly Rent</div>
+          <section className="ul-filters-modal-section">
+            <div className="ul-filters-modal-section-head">
+              <div className="ul-filters-modal-label">Monthly Rent</div>
               {(draftMin !== priceBounds.min || draftMax !== priceBounds.max) && !sliderDisabled && (
                 <button
                   type="button"
-                  className={s.sectionClear}
+                  className="ul-filters-modal-section-clear"
                   onClick={() => {
                     setDraftMin(priceBounds.min)
                     setDraftMax(priceBounds.max)
@@ -162,28 +162,28 @@ export function FiltersModal({
               )}
             </div>
 
-            <div className={s.priceRow}>
-              <div className={s.priceChip}>
-                <span className={s.priceChipLabel}>Min</span>
-                <span className={s.priceChipValue}>{formatUSD(draftMin)}</span>
+            <div className="ul-filters-modal-price-row">
+              <div className="ul-filters-modal-price-chip">
+                <span className="ul-filters-modal-price-chip-label">Min</span>
+                <span className="ul-filters-modal-price-chip-value">{formatUSD(draftMin)}</span>
               </div>
-              <div className={s.priceChipDivider} aria-hidden="true" />
-              <div className={s.priceChip}>
-                <span className={s.priceChipLabel}>Max</span>
-                <span className={s.priceChipValue}>{formatUSD(draftMax)}</span>
+              <div className="ul-filters-modal-price-chip-divider" aria-hidden="true" />
+              <div className="ul-filters-modal-price-chip">
+                <span className="ul-filters-modal-price-chip-label">Max</span>
+                <span className="ul-filters-modal-price-chip-value">{formatUSD(draftMax)}</span>
               </div>
             </div>
 
-            <div className={clsx(s.slider, sliderDisabled && s.sliderDisabled)}>
-              <div className={s.sliderTrack} aria-hidden="true" />
+            <div className={clsx('ul-filters-modal-slider', sliderDisabled && 'ul-filters-modal-slider-disabled')}>
+              <div className="ul-filters-modal-slider-track" aria-hidden="true" />
               <div
-                className={s.sliderRange}
+                className="ul-filters-modal-slider-range"
                 style={{ left: `${minPercent}%`, right: `${100 - maxPercent}%` }}
                 aria-hidden="true"
               />
               <input
                 type="range"
-                className={clsx(s.sliderInput, s.sliderInputMin)}
+                className={clsx('ul-filters-modal-slider-input', 'ul-filters-modal-slider-input-min')}
                 min={priceBounds.min}
                 max={priceBounds.max}
                 step={priceStep}
@@ -194,7 +194,7 @@ export function FiltersModal({
               />
               <input
                 type="range"
-                className={clsx(s.sliderInput, s.sliderInputMax)}
+                className={clsx('ul-filters-modal-slider-input', 'ul-filters-modal-slider-input-max')}
                 min={priceBounds.min}
                 max={priceBounds.max}
                 step={priceStep}
@@ -205,18 +205,18 @@ export function FiltersModal({
               />
             </div>
 
-            <div className={s.sliderBounds}>
+            <div className="ul-filters-modal-slider-bounds">
               <span>{formatUSD(priceBounds.min)}</span>
               <span>{formatUSD(priceBounds.max)}</span>
             </div>
           </section>
         </div>
 
-        <div className={s.footer}>
-          <button type="button" className={s.resetButton} onClick={handleReset}>
+        <div className="ul-filters-modal-footer">
+          <button type="button" className="ul-filters-modal-reset-button" onClick={handleReset}>
             Reset
           </button>
-          <button type="button" className={s.applyButton} onClick={handleApply}>
+          <button type="button" className="ul-filters-modal-apply-button" onClick={handleApply}>
             Apply filters
           </button>
         </div>

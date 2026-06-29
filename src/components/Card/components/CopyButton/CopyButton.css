@@ -1,4 +1,4 @@
-.root {
+.ul-copy-btn-root {
   cursor: pointer;
   padding: 4px 8px;
   display: flex;
@@ -10,18 +10,18 @@
   color: var(--ul-color-price-text);
 }
 
-.root:hover {
+.ul-copy-btn-root:hover {
   background-color: rgba(202, 188, 180, 0.6);
 }
 
-.root:active {
+.ul-copy-btn-root:active {
   background-color: rgba(254, 243, 229, 0.8);
 }
 
-.info {
+.ul-copy-btn-info {
   display: none;
 }
 
-.root:hover .info {
+.ul-copy-btn-root:hover .ul-copy-btn-info {
   display: block;
 }

@@ -1,4 +1,4 @@
-.root {
+.ul-view-toggle-root {
   display: inline-flex;
   padding: 2px;
   border-radius: var(--ul-radius-pill);
@@ -6,7 +6,7 @@
   height: 40px;
 }
 
-.btn {
+.ul-view-toggle-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--ul-space-1);
@@ -26,30 +26,30 @@
   user-select: none;
 }
 
-.btn:hover {
+.ul-view-toggle-btn:hover {
   color: rgba(38, 37, 35, 0.7);
 }
 
-.btnActive {
+.ul-view-toggle-btn-active {
   background-color: var(--ul-color-accent);
   color: var(--ul-color-accent-contrast);
   cursor: default;
 }
 
-.btnActive:hover {
+.ul-view-toggle-btn-active:hover {
   color: var(--ul-color-accent-contrast);
 }
 
-.icon {
+.ul-view-toggle-icon {
   display: block;
 }
 
-.label {
+.ul-view-toggle-label {
   display: inline;
 }
 
 @media (min-width: 768px) {
-  .btn {
+  .ul-view-toggle-btn {
     padding: 10px 18px;
   }
 }
