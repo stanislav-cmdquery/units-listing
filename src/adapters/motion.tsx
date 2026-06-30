@@ -1,4 +1,4 @@
-import type { ComponentType, HTMLAttributes, ReactNode } from 'react'
+import type { ComponentType, ExoticComponent, HTMLAttributes, ReactNode } from 'react'
 
 export interface MotionDivProps extends HTMLAttributes<HTMLDivElement> {
   initial?: unknown
@@ -11,9 +11,12 @@ export interface MotionDivProps extends HTMLAttributes<HTMLDivElement> {
   whileTap?: unknown
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type MotionComponent = ComponentType<any> | ExoticComponent<any>
+
 export interface MotionAdapter {
-  div: ComponentType<MotionDivProps>
-  AnimatePresence: ComponentType<{ children?: ReactNode; mode?: string }>
+  div: MotionComponent
+  AnimatePresence: MotionComponent
 }
 
 const StaticDiv: ComponentType<MotionDivProps> = ({
