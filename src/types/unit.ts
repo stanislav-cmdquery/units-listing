@@ -1,5 +1,7 @@
 export interface UnitImage {
   src: string
+  /** Full-resolution version of the image, used in the enlarged/lightbox view. Falls back to `src` if omitted. */
+  original?: string
   alt?: string
   width?: number
   height?: number

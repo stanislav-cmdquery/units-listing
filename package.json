@@ -1,6 +1,6 @@
 {
   "name": "@cmdquery/units-listing",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Themeable units listing UI component for apartment/condo listings",
   "type": "module",
   "sideEffects": [
@@ -16,7 +16,12 @@
       "require": "./dist/index.cjs"
     },
     "./styles": "./dist/index.css",
-    "./tokens.css": "./dist/index.css"
+    "./tokens.css": "./dist/index.css",
+    "./adapters/seeClickRent": {
+      "types": "./dist/adapters/seeClickRent.d.ts",
+      "import": "./dist/adapters/seeClickRent.js",
+      "require": "./dist/adapters/seeClickRent.cjs"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

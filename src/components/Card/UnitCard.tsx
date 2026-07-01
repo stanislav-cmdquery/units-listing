@@ -103,11 +103,11 @@ export function UnitCard({ unit, className }: Props) {
   const slides = useMemo<Slide[]>(() => {
     const list: Slide[] = []
     if (floorPlan) {
-      list.push({ src: floorPlan.src, kind: 'plan' })
+      list.push({ src: floorPlan.src, enlargedSrc: floorPlan.original, kind: 'plan' })
     }
     if (images?.length) {
       for (const img of images) {
-        if (img.src) list.push({ src: img.src, kind: 'photo' })
+        if (img.src) list.push({ src: img.src, enlargedSrc: img.original, kind: 'photo' })
       }
     }
     return list
