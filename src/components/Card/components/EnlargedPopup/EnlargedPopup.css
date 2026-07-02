@@ -219,10 +219,6 @@ button.ul-enlarged-price-net:hover {
   display: none;
 }
 
-.ul-enlarged-book-modal-placeholder {
-  display: none;
-}
-
 @media (max-width: 767px) {
   .ul-enlarged-overlay {
     padding: 0;

@@ -263,6 +263,7 @@ export function UnitCard({ unit, className }: Props) {
       {showEnlarged && (
         <EnlargedPopup
           onClose={() => setShowEnlarged(false)}
+          unit={unit}
           id={id}
           unitNumber={unitNumber}
           beds={beds}

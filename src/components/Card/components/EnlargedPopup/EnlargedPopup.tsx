@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import { useUnitsListingConfig } from '../../../../context/UnitsListingContext'
+import type { Unit } from '../../../../types/unit'
 import { formatUSD } from '../../../../utils/formatPrice'
 import { BottomActions } from '../BottomActions/BottomActions'
 import { ConcessionPopup } from '../ConcessionPopup/ConcessionPopup'
@@ -20,6 +21,7 @@ function isPdf(src: string): boolean {
 
 type Props = {
   onClose: () => void
+  unit: Unit
   id?: string
   unitNumber?: string
   beds: number
@@ -40,6 +42,7 @@ type Props = {
 
 export function EnlargedPopup({
   onClose,
+  unit,
   unitNumber,
   beds,
   baths,
@@ -87,13 +90,10 @@ export function EnlargedPopup({
 
   const { ImageComponent } = useUnitsListingConfig()
 
-  // Inline book tour handling
   const handleBookTour = () => {
-    if (renderBookTourModal) {
+    if (renderBookTourModal || onBookTour) {
       setShowBookModal(true)
-    } else if (onBookTour) {
-      // We don't have a unit object here, but we'll just close
-      setShowBookModal(true)
+      onBookTour?.(unit)
     }
   }
 
@@ -343,9 +343,9 @@ export function EnlargedPopup({
           )}
         </div>
 
-        {showBookModal && renderBookTourModal == null && (
-          <div className="ul-enlarged-book-modal-placeholder" />
-        )}
+        {showBookModal &&
+          renderBookTourModal != null &&
+          renderBookTourModal({ unit, close: () => setShowBookModal(false) })}
       </div>
     </div>,
     document.body
