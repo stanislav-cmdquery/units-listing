@@ -69,6 +69,27 @@ button.ul-card-price-net:hover {
   overflow: hidden;
 }
 
+/* A card with no floor plan/photos keeps only the 4/3 fallback aspect and
+   would end up shorter than image cards in the same grid row: let it stretch
+   to the row height instead and center the fallback message. */
+.ul-card-no-media {
+  height: auto;
+}
+
+.ul-card-no-media .ul-card-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ul-card-empty {
+  padding: 0 20px;
+  color: var(--ul-color-text-secondary);
+  font-size: var(--ul-font-size-sm);
+  text-align: center;
+}
+
 .ul-card-has-gallery:before {
   content: '';
   position: absolute;

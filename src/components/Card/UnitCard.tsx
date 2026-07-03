@@ -138,7 +138,7 @@ export function UnitCard({ unit, className }: Props) {
   }
 
   return (
-    <MotionDiv className={clsx('ul-card-root', className, getClassNameByBeds(beds), showPopup && 'ul-card-info-open')}>
+    <MotionDiv className={clsx('ul-card-root', className, getClassNameByBeds(beds), showPopup && 'ul-card-info-open', total === 0 && 'ul-card-no-media')}>
       <div className="ul-card-top">
         <UnitParams unitNumber={unitNumber} beds={beds} baths={baths} />
 
@@ -162,6 +162,8 @@ export function UnitCard({ unit, className }: Props) {
       </div>
 
       <div className={clsx('ul-card-center', total > 1 && 'ul-card-has-gallery')} style={{ '--aspect': aspect } as CSSProperties}>
+        {total === 0 && <div className="ul-card-empty">Floor plan not available</div>}
+
         {slides[safeIndex] && (
           <ImageComponent
             src={slides[safeIndex].src}
