@@ -17,11 +17,3 @@
 .ul-copy-btn-root:active {
   background-color: rgba(254, 243, 229, 0.8);
 }
-
-.ul-copy-btn-info {
-  display: none;
-}
-
-.ul-copy-btn-root:hover .ul-copy-btn-info {
-  display: block;
-}
