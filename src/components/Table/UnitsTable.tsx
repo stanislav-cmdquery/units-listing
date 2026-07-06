@@ -4,11 +4,13 @@ import clsx from 'clsx'
 import { useId, useMemo, useState } from 'react'
 
 import { useUnitsListingConfig } from '../../context/UnitsListingContext'
+import type { UnitsListingLabels } from '../../context/UnitsListingContext'
 import type { Unit } from '../../types/unit'
 import { formatUSD } from '../../utils/formatPrice'
+import { Tooltip } from '../../ui/Tooltip/Tooltip'
 import './UnitsTable.css'
 
-type SortKey = 'unit' | 'beds' | 'baths' | 'price'
+type SortKey = 'unit' | 'beds' | 'baths' | 'price' | 'promo'
 type SortDir = 'asc' | 'desc'
 type SortState = { key: SortKey; dir: SortDir }
 
@@ -28,6 +30,7 @@ const COLUMNS: Column[] = [
   { key: 'beds', label: 'Type', align: 'left' },
   { key: 'baths', label: 'Bath', align: 'left', mobileHide: true },
   { key: 'price', label: 'Price', align: 'left' },
+  { key: 'promo', label: 'Promo', align: 'left', mobileHide: true },
 ]
 
 function getTypeLabel(beds: number) {
@@ -45,6 +48,8 @@ function getSortValue(unit: Unit, key: SortKey): number | string {
       return unit.baths ?? 0
     case 'price':
       return unit.price.net ?? 0
+    case 'promo':
+      return Number(unit.concession?.value) || 0
     default:
       return 0
   }
@@ -113,16 +118,57 @@ function BookTourIcon({ className }: { className?: string }) {
   )
 }
 
-function formatPriceCell(priceNet: number | null, priceGross: number | null) {
-  if (priceNet == null && priceGross == null) return <span>—</span>
+function PriceInfoIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7.5 7.5C7.63261 7.5 7.75979 7.55268 7.85355 7.64645C7.94732 7.74021 8 7.86739 8 8V10.5C8 10.6326 8.05268 10.7598 8.14645 10.8536C8.24021 10.9473 8.36739 11 8.5 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M7.75 6C8.16421 6 8.5 5.66421 8.5 5.25C8.5 4.83579 8.16421 4.5 7.75 4.5C7.33579 4.5 7 4.83579 7 5.25C7 5.66421 7.33579 6 7.75 6Z" fill="currentColor" />
+    </svg>
+  )
+}
 
-  const net = priceNet ?? priceGross
-  const gross = priceGross !== priceNet ? priceGross : null
+function formatPriceCell(unit: Unit, labels: UnitsListingLabels) {
+  const { price, concession, leaseTerm } = unit
+  if (price.net == null) return <span>—</span>
+
+  if (price.gross == null || price.gross === price.net) {
+    return (
+      <div className="ul-table-price-container">
+        <span className="ul-table-price-net">{formatUSD(price.net)}</span>
+      </div>
+    )
+  }
+
+  const savings = price.gross - price.net
+  const savingsPct = Math.round((savings / price.gross) * 100)
+  const concessionLabel = concession?.type === 'weeks' ? labels.concessionWeeks : labels.concessionMonths
+  const concessionText = concession != null ? `${concession.value} ${concessionLabel}` : ''
 
   return (
     <div className="ul-table-price-container">
-      {gross != null && <span className="ul-table-price-gross">{formatUSD(gross)}</span>}
-      {net != null && <span className="ul-table-price-net">{formatUSD(net)}</span>}
+      <span className="ul-table-price-gross">{formatUSD(price.gross)}</span>
+
+      <Tooltip
+        trigger="click"
+        rootClassName="ul-table-price-tooltip-wrapper"
+        content={
+          <div className="ul-table-price-tooltip">
+            <div className="ul-table-price-tooltip-title">
+              Save {formatUSD(savings)} ({savingsPct}% off)
+            </div>
+            <div className="ul-table-price-tooltip-text">
+              *Net effective cost with {concessionText}
+              {leaseTerm ? ` when you sign a ${leaseTerm}-month lease` : ''}
+            </div>
+          </div>
+        }
+      >
+        <span className="ul-table-price-net">
+          {formatUSD(price.net)}
+          <PriceInfoIcon className="ul-table-price-info-icon" />
+        </span>
+      </Tooltip>
     </div>
   )
 }
@@ -214,8 +260,15 @@ export function UnitsTable({ units }: Props) {
                   <BathIcon className="ul-table-bath-icon" />
                 </div>
               </td>
-              <td className={clsx('ul-table-td', 'ul-table-price-cell')}>
-                {formatPriceCell(unit.price.net, unit.price.gross)}
+              <td className={clsx('ul-table-td', 'ul-table-price-cell')}>{formatPriceCell(unit, labels)}</td>
+              <td className={clsx('ul-table-td', 'ul-table-hide-mobile')}>
+                <span className="ul-table-promo-tag">
+                  {unit.concession
+                    ? `${unit.concession.value} ${
+                        unit.concession.type === 'weeks' ? labels.concessionWeeks : labels.concessionMonths
+                      }`
+                    : '—'}
+                </span>
               </td>
               <td className={clsx('ul-table-td', 'ul-table-action-td')}>
                 <div className="ul-table-action-wrapper">
