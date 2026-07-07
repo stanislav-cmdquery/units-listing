@@ -50,6 +50,25 @@ export function UnitsList({ units, isLoading }) {
 }
 ```
 
+> **Blur placeholder with `next/image`:** `Image` accepts `blurDataURL` but only renders it when `placeholder="blur"` is also set — plain `<Image>` ignores `blurDataURL` silently. Wrap it so the placeholder activates whenever a unit provides one:
+>
+> ```tsx
+> import NextImage from 'next/image'
+> import type { ImageComponentProps } from '@cmdquery/units-listing'
+>
+> function BlurImage(props: ImageComponentProps) {
+>   return (
+>     <NextImage
+>       {...props}
+>       placeholder={props.blurDataURL ? 'blur' : 'empty'}
+>     />
+>   )
+> }
+> // then: <UnitsListing ImageComponent={BlurImage} ... />
+> ```
+>
+> Populate `blurDataURL` on each `UnitImage` (see [Data contract](#data-contract)) — without it, cards fall back to a shimmer skeleton while the image loads.
+
 ## Data contract
 
 The package never fetches data — pass units as a prop. Map your API response to the `Unit` type:

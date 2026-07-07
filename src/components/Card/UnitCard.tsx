@@ -14,7 +14,7 @@ import { EnlargedPopup } from './components/EnlargedPopup/EnlargedPopup'
 import { UnitParams } from './components/UnitParams/UnitParams'
 import './UnitCard.css'
 
-type Slide = { src: string; enlargedSrc?: string; kind: 'plan' | 'photo' }
+type Slide = { src: string; enlargedSrc?: string; kind: 'plan' | 'photo'; blurDataURL?: string }
 
 function EnlargeIcon({ className }: { className?: string }) {
   return (
@@ -99,15 +99,16 @@ export function UnitCard({ unit, className }: Props) {
   const [showBookModal, setShowBookModal] = useState(false)
   const [slideIndex, setSlideIndex] = useState(0)
   const [aspect, setAspect] = useState(4 / 3)
+  const [loadedSrcs, setLoadedSrcs] = useState<Set<string>>(() => new Set())
 
   const slides = useMemo<Slide[]>(() => {
     const list: Slide[] = []
     if (floorPlan) {
-      list.push({ src: floorPlan.src, enlargedSrc: floorPlan.original, kind: 'plan' })
+      list.push({ src: floorPlan.src, enlargedSrc: floorPlan.original, kind: 'plan', blurDataURL: floorPlan.blurDataURL })
     }
     if (images?.length) {
       for (const img of images) {
-        if (img.src) list.push({ src: img.src, enlargedSrc: img.original, kind: 'photo' })
+        if (img.src) list.push({ src: img.src, enlargedSrc: img.original, kind: 'photo', blurDataURL: img.blurDataURL })
       }
     }
     return list
@@ -165,20 +166,28 @@ export function UnitCard({ unit, className }: Props) {
         {total === 0 && <div className="ul-card-empty">Floor plan not available</div>}
 
         {slides[safeIndex] && (
-          <ImageComponent
-            src={slides[safeIndex].src}
-            alt={slides[safeIndex].kind === 'plan' ? 'Floor plan' : 'Photo'}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1440px) 33vw, 25vw"
-            className="ul-card-image"
-            onLoad={(e: React.SyntheticEvent<HTMLImageElement>) => {
-              if (safeIndex !== 0) return
-              const img = e.currentTarget
-              if (img.naturalWidth > 0 && img.naturalHeight > 0) {
-                setAspect(img.naturalWidth / img.naturalHeight)
-              }
-            }}
-          />
+          <>
+            {!loadedSrcs.has(slides[safeIndex].src) && !slides[safeIndex].blurDataURL && (
+              <div className="ul-card-image-skeleton ul-skeleton-shimmer" aria-hidden="true" />
+            )}
+            <ImageComponent
+              src={slides[safeIndex].src}
+              alt={slides[safeIndex].kind === 'plan' ? 'Floor plan' : 'Photo'}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1440px) 33vw, 25vw"
+              className="ul-card-image"
+              blurDataURL={slides[safeIndex].blurDataURL}
+              onLoad={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                const src = slides[safeIndex].src
+                setLoadedSrcs((prev) => (prev.has(src) ? prev : new Set(prev).add(src)))
+                if (safeIndex !== 0) return
+                const img = e.currentTarget
+                if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+                  setAspect(img.naturalWidth / img.naturalHeight)
+                }
+              }}
+            />
+          </>
         )}
 
         {total > 1 && (

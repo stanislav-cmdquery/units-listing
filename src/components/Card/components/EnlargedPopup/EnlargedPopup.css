@@ -113,7 +113,16 @@ button.ul-enlarged-price-net:hover {
 }
 
 .ul-enlarged-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+}
+
+.ul-enlarged-image-skeleton {
+  position: absolute;
+  inset: 0;
 }
 
 .ul-enlarged-floor-plan-image {

@@ -13,7 +13,7 @@ import { CopyButton } from '../CopyButton/CopyButton'
 import { UnitParams } from '../UnitParams/UnitParams'
 import './EnlargedPopup.css'
 
-type Slide = { src: string; enlargedSrc?: string; kind: 'plan' | 'photo' }
+type Slide = { src: string; enlargedSrc?: string; kind: 'plan' | 'photo'; blurDataURL?: string }
 
 function isPdf(src: string): boolean {
   return src.split('?')[0].toLowerCase().endsWith('.pdf')
@@ -63,6 +63,7 @@ export function EnlargedPopup({
   const MotionDiv = motionAdapter.div
   const [showPriceInfo, setShowPriceInfo] = useState(false)
   const [showBookModal, setShowBookModal] = useState(false)
+  const [loadedSrcs, setLoadedSrcs] = useState<Set<string>>(() => new Set())
   const touchStartX = useRef<number | null>(null)
 
   const concessionNum =
@@ -211,13 +212,22 @@ export function EnlargedPopup({
                       </a>
                     </div>
                   ) : (
-                    <ImageComponent
-                      src={displaySrc}
-                      alt={slide.kind === 'plan' ? 'Floor plan' : `Unit photo ${idx}`}
-                      fill
-                      sizes="900px"
-                      className={clsx('ul-enlarged-image', idx === 0 && 'ul-enlarged-floor-plan-image')}
-                    />
+                    <>
+                      {!loadedSrcs.has(displaySrc) && !slide.blurDataURL && (
+                        <div className="ul-enlarged-image-skeleton ul-skeleton-shimmer" aria-hidden="true" />
+                      )}
+                      <ImageComponent
+                        src={displaySrc}
+                        alt={slide.kind === 'plan' ? 'Floor plan' : `Unit photo ${idx}`}
+                        fill
+                        sizes="900px"
+                        className={clsx('ul-enlarged-image', idx === 0 && 'ul-enlarged-floor-plan-image')}
+                        blurDataURL={slide.blurDataURL}
+                        onLoad={() =>
+                          setLoadedSrcs((prev) => (prev.has(displaySrc) ? prev : new Set(prev).add(displaySrc)))
+                        }
+                      />
+                    </>
                   )}
                 </div>
               )
