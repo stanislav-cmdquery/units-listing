@@ -14,6 +14,7 @@ export function UnitsListing({
   units,
   isLoading,
   isError,
+  onRetry,
   pageSize = 25,
   skeletonCount = 10,
   priceStep = 50,
@@ -66,6 +67,7 @@ export function UnitsListing({
           units={units}
           isLoading={isLoading ?? false}
           isError={isError ?? false}
+          onRetry={onRetry}
           header={header}
           pageSize={pageSize}
           renderCard={renderCard}

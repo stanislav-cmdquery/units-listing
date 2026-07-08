@@ -13,6 +13,7 @@ type Props = {
   units: Unit[]
   isLoading: boolean
   isError: boolean
+  onRetry?: () => void
   pageSize?: number
   header?: React.ReactNode
   renderCard: (unit: Unit) => React.ReactNode
@@ -24,6 +25,7 @@ export function UnitsGrid({
   units,
   isLoading,
   isError,
+  onRetry,
   pageSize,
   header,
   renderCard,
@@ -99,7 +101,15 @@ export function UnitsGrid({
     return (
       <div className="ul-grid-root">
         {controls}
-        <div className="ul-grid-error">{labels.retry}</div>
+        <div className="ul-grid-error">
+          {onRetry ? (
+            <button type="button" className="ul-grid-error-retry" onClick={onRetry}>
+              {labels.retry}
+            </button>
+          ) : (
+            labels.retry
+          )}
+        </div>
       </div>
     )
   }
