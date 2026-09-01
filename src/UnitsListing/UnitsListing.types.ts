@@ -16,6 +16,7 @@ export interface UnitsListingProps {
   view?: ViewMode
   onViewChange?: (v: ViewMode) => void
   enableViewToggle?: boolean
+  showUnitTypeFilter?: boolean
   pageSize?: number
   skeletonCount?: number
   priceStep?: number

@@ -15,6 +15,10 @@ export interface UnitsListingTheme {
   radiusPill?: string
   gridMinCol?: string
   fontFamily?: string
+  unitTypeBorder?: string
+  unitTypeText?: string
+  unitTypeBgActive?: string
+  unitTypeTextActive?: string
 }
 
 export type UnitsListingThemeVars = {
@@ -39,6 +43,10 @@ export function themeToVars(theme: UnitsListingTheme): UnitsListingThemeVars {
     '--ul-radius-pill': theme.radiusPill,
     '--ul-grid-min-col': theme.gridMinCol,
     '--ul-font-family': theme.fontFamily,
+    '--ul-unit-type-border': theme.unitTypeBorder,
+    '--ul-unit-type-text': theme.unitTypeText,
+    '--ul-unit-type-bg-active': theme.unitTypeBgActive,
+    '--ul-unit-type-text-active': theme.unitTypeTextActive,
   }
   const result: UnitsListingThemeVars = {}
   for (const [k, v] of Object.entries(map)) {

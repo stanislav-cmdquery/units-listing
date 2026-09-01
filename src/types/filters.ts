@@ -16,6 +16,7 @@ export interface UnitsFilterState {
   priceMinStr: string
   priceMaxStr: string
   outdoorFilter: string[]
+  unitTypeFilter: number[]
 }
 
 export interface UnitsFilterConfig {

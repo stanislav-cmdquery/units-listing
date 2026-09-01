@@ -18,6 +18,7 @@ export function UnitsListing({
   pageSize = 25,
   skeletonCount = 10,
   priceStep = 50,
+  showUnitTypeFilter = true,
   labels,
   theme,
   themeVars,
@@ -70,6 +71,7 @@ export function UnitsListing({
           onRetry={onRetry}
           header={header}
           pageSize={pageSize}
+          showUnitTypeFilter={showUnitTypeFilter}
           renderCard={renderCard}
           renderSkeletons={renderSkeletons}
           renderTable={renderTable}

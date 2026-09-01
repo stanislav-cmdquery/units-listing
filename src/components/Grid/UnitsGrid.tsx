@@ -6,6 +6,7 @@ import type { Unit } from '../../types/unit'
 import { useUnitsListingConfig } from '../../context/UnitsListingContext'
 import { useUnitsFilter } from '../../hooks/useUnitsFilter'
 import { FiltersDropdown } from '../Filters/FiltersDropdown'
+import { UnitTypeFilter } from '../Filters/UnitTypeFilter'
 import { ViewToggle, type View } from './ViewToggle'
 import './UnitsGrid.css'
 
@@ -16,6 +17,7 @@ type Props = {
   onRetry?: () => void
   pageSize?: number
   header?: React.ReactNode
+  showUnitTypeFilter?: boolean
   renderCard: (unit: Unit) => React.ReactNode
   renderSkeletons: () => React.ReactNode
   renderTable: (units: Unit[]) => React.ReactNode
@@ -28,6 +30,7 @@ export function UnitsGrid({
   onRetry,
   pageSize,
   header,
+  showUnitTypeFilter = true,
   renderCard,
   renderSkeletons,
   renderTable,
@@ -49,6 +52,10 @@ export function UnitsGrid({
     toggleOutdoor,
     outdoorOptions,
     bathOptions,
+    unitTypeFilter,
+    toggleUnitType,
+    clearUnitTypeFilter,
+    unitTypeOptions,
     filteredUnits,
     hasActiveFilters,
     isDropdownActive,
@@ -62,6 +69,17 @@ export function UnitsGrid({
     <>
       {header && <div className="ul-grid-header">{header}</div>}
       <div className="ul-grid-controls">
+        {showUnitTypeFilter && (
+          <div className="ul-grid-controls-left">
+            <UnitTypeFilter
+              options={unitTypeOptions}
+              value={unitTypeFilter}
+              onToggle={toggleUnitType}
+              onSelectAll={clearUnitTypeFilter}
+              allLabel={labels.unitTypeAllLabel}
+            />
+          </div>
+        )}
         <div className="ul-grid-controls-right">
           <ViewToggle
             view={view}

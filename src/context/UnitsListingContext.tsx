@@ -10,6 +10,7 @@ export interface UnitsListingLabels {
   bathLabel: string
   priceLabel: string
   outdoorLabel: string
+  unitTypeAllLabel: string
   bookTour: string
   copyLink: string
   emptyTitle: string
@@ -27,6 +28,7 @@ export const defaultLabels: UnitsListingLabels = {
   bathLabel: 'Baths',
   priceLabel: 'Price',
   outdoorLabel: 'Outdoor',
+  unitTypeAllLabel: 'All',
   bookTour: 'Book Tour',
   copyLink: 'Copy',
   emptyTitle: 'No units available',

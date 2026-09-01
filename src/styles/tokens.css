@@ -18,6 +18,12 @@
   --ul-color-skeleton: #ebe5dc;
   --ul-color-skeleton-shine: #f5efe8;
   --ul-color-overlay: rgba(16, 16, 15, 0.5);
+  /* Unit type selector */
+  --ul-unit-type-border: #382d29;
+  --ul-unit-type-text: #382d29;
+  --ul-unit-type-bg-active: #382d29;
+  --ul-unit-type-text-active: #f4f1ed;
+  --ul-unit-type-bg-hover: rgba(56, 45, 41, 0.08);
   /* Radii */
   --ul-radius-xs: 4px;
   --ul-radius-sm: 8px;

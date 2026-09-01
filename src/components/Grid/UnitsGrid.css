@@ -17,6 +17,10 @@
   flex-wrap: wrap;
 }
 
+.ul-grid-controls-left {
+  display: none;
+}
+
 .ul-grid-controls-right {
   width: 100%;
   display: flex;
@@ -114,6 +118,11 @@
     min-height: 495px;
     gap: var(--ul-grid-gap);
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .ul-grid-controls-left {
+    display: flex;
+    align-items: center;
   }
 
   .ul-grid-controls-right {
