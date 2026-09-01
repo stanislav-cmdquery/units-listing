@@ -18,7 +18,7 @@ export function UnitsListing({
   pageSize = 25,
   skeletonCount = 10,
   priceStep = 50,
-  showUnitTypeFilter = true,
+  showUnitTypeFilter = false,
   labels,
   theme,
   themeVars,

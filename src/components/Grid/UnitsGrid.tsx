@@ -30,7 +30,7 @@ export function UnitsGrid({
   onRetry,
   pageSize,
   header,
-  showUnitTypeFilter = true,
+  showUnitTypeFilter = false,
   renderCard,
   renderSkeletons,
   renderTable,
