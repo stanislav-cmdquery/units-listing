@@ -263,7 +263,7 @@ export function UnitsTable({ units }: Props) {
               <td className={clsx('ul-table-td', 'ul-table-price-cell')}>{formatPriceCell(unit, labels)}</td>
               <td className={clsx('ul-table-td', 'ul-table-hide-mobile')}>
                 <span className="ul-table-promo-tag">
-                  {unit.concession
+                  {unit.concession && Number(unit.concession.value) > 0
                     ? `${unit.concession.value} ${
                         unit.concession.type === 'weeks' ? labels.concessionWeeks : labels.concessionMonths
                       }`
