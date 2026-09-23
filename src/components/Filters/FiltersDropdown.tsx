@@ -4,9 +4,7 @@ import clsx from 'clsx'
 import { useEffect, useRef, useState } from 'react'
 
 import { useUnitsListingConfig } from '../../context/UnitsListingContext'
-import { useBodyOverflow } from '../../hooks/useBodyOverflow'
 import { useClickOutside } from '../../hooks/useClickOutside'
-import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { ButtonGroup } from '../../ui/ButtonGroup/ButtonGroup'
 import type { BathFilter, OutdoorFilter } from '../../hooks/useUnitsFilter'
 import { ArrowDown } from './ArrowDown'
@@ -52,11 +50,8 @@ export function FiltersDropdown({
   const { labels } = useUnitsListingConfig()
   const [isOpen, setIsOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
-  // Below 768px the panel is a full-screen sheet, so the page behind it must not scroll
-  const isSheet = useMediaQuery('(max-width: 767px)')
 
   useClickOutside([rootRef], () => setIsOpen(false))
-  useBodyOverflow(isOpen && isSheet)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -91,7 +86,7 @@ export function FiltersDropdown({
 
       {isOpen && (
         <div className="ul-filters-panel" role="dialog" aria-label={labels.filtersTitle}>
-          {/* Sheet header and footer actions are mobile-only; the desktop dropdown hides them */}
+          {/* The header and Show results are mobile-only; the desktop dropdown hides them */}
           <div className="ul-filters-header">
             <div className="ul-filters-title">{labels.filtersTitle}</div>
             <button
@@ -178,7 +173,7 @@ export function FiltersDropdown({
             <button type="button" className="ul-filters-clear-btn" onClick={handleClear}>
               Clear
             </button>
-            {/* Filters apply as they change, so this only closes the sheet */}
+            {/* Filters apply as they change, so this only closes the panel */}
             <button type="button" className="ul-filters-apply-btn" onClick={() => setIsOpen(false)}>
               {labels.showResults}
             </button>
