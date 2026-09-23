@@ -2,8 +2,10 @@
 import { createContext, useContext, type ReactNode } from 'react'
 import type { ImageComponent } from '../adapters/image'
 import type { MotionAdapter } from '../adapters/motion'
+import type { CopyIconComponent } from '../adapters/copyIcon'
 import { DefaultImage } from '../adapters/image'
 import { defaultMotionAdapter } from '../adapters/motion'
+import { DefaultCopyIcon } from '../adapters/copyIcon'
 
 export interface UnitsListingLabels {
   filtersTitle: string
@@ -44,6 +46,7 @@ export const defaultLabels: UnitsListingLabels = {
 export interface UnitsListingConfig {
   labels: UnitsListingLabels
   ImageComponent: ImageComponent
+  CopyIconComponent: CopyIconComponent
   motion: MotionAdapter
   pageSize: number
   skeletonCount: number
@@ -55,6 +58,7 @@ export interface UnitsListingConfig {
 export interface UnitsListingConfigInput {
   labels?: Partial<UnitsListingLabels>
   ImageComponent?: ImageComponent
+  CopyIconComponent?: CopyIconComponent
   motion?: MotionAdapter
   pageSize?: number
   skeletonCount?: number
@@ -66,6 +70,7 @@ export interface UnitsListingConfigInput {
 const UnitsListingContext = createContext<UnitsListingConfig>({
   labels: defaultLabels,
   ImageComponent: DefaultImage,
+  CopyIconComponent: DefaultCopyIcon,
   motion: defaultMotionAdapter,
   pageSize: 25,
   skeletonCount: 10,
@@ -82,6 +87,7 @@ export function UnitsListingProvider({
   const merged: UnitsListingConfig = {
     labels: { ...defaultLabels, ...value.labels },
     ImageComponent: value.ImageComponent ?? DefaultImage,
+    CopyIconComponent: value.CopyIconComponent ?? DefaultCopyIcon,
     motion: value.motion ?? defaultMotionAdapter,
     pageSize: value.pageSize ?? 25,
     skeletonCount: value.skeletonCount ?? 10,

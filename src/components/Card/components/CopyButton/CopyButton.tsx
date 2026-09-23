@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
+import { useUnitsListingConfig } from '../../../../context/UnitsListingContext'
 import { formatUSD } from '../../../../utils/formatPrice'
 import { CopyHoverInfo } from '../CopyHoverInfo/CopyHoverInfo'
 import './CopyButton.css'
@@ -28,6 +29,7 @@ Baths: ${info.baths === 0 ? 1 : info.baths}
 }
 
 export function CopyButton({ unitNumber, beds, baths, priceNet, priceGross }: Props) {
+  const { CopyIconComponent } = useUnitsListingConfig()
   const rootRef = useRef<HTMLDivElement>(null)
   const [tooltipPosition, setTooltipPosition] = useState<{ top: number; left: number } | null>(null)
 
@@ -62,22 +64,7 @@ export function CopyButton({ unitNumber, beds, baths, priceNet, priceGross }: Pr
         navigator.clipboard.writeText(prepareInfoForCopy({ unitNumber, beds, baths, priceNet, priceGross }))
       }}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path
-          d="M10.5 10.5H13.5V2.5H5.5V5.5"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M10.5 5.5H2.5V13.5H10.5V5.5Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      <CopyIconComponent />
 
       {tooltipPosition &&
         createPortal(

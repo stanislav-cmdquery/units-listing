@@ -132,7 +132,8 @@ export function EnlargedPopup({
                 aria-expanded={showPriceInfo}
                 aria-label="Show concession details"
               >
-                {formatUSD(priceNet)}*
+                {formatUSD(priceNet)}
+                {hasConcession && '*'}
               </button>
             ) : priceGross != null ? (
               <span className="ul-enlarged-price-net">{formatUSD(priceGross)}</span>

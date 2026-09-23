@@ -3,6 +3,7 @@ import type { Unit } from '../types/unit'
 import type { UnitsListingTheme, UnitsListingThemeVars } from '../types/theme'
 import type { UnitsListingLabels } from '../context/UnitsListingContext'
 import type { ImageComponent } from '../adapters/image'
+import type { CopyIconComponent } from '../adapters/copyIcon'
 import type { MotionAdapter } from '../adapters/motion'
 
 export type ViewMode = 'card' | 'list'
@@ -27,6 +28,7 @@ export interface UnitsListingProps {
   style?: CSSProperties
   header?: ReactNode
   ImageComponent?: ImageComponent
+  CopyIconComponent?: CopyIconComponent
   motion?: MotionAdapter
   onUnitSelect?: (unit: Unit) => void
   onBookTour?: (unit: Unit) => void

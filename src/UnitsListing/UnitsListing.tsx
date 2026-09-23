@@ -26,6 +26,7 @@ export function UnitsListing({
   style,
   header,
   ImageComponent,
+  CopyIconComponent,
   motion,
   onBookTour,
   renderBookTourModal,
@@ -41,9 +42,9 @@ export function UnitsListing({
   )
 
   const providerValue = useMemo(
-    () => ({ labels, ImageComponent, motion, pageSize, skeletonCount, priceStep, onBookTour, renderBookTourModal }),
+    () => ({ labels, ImageComponent, CopyIconComponent, motion, pageSize, skeletonCount, priceStep, onBookTour, renderBookTourModal }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [labels, ImageComponent, motion, pageSize, skeletonCount, priceStep, onBookTour, renderBookTourModal]
+    [labels, ImageComponent, CopyIconComponent, motion, pageSize, skeletonCount, priceStep, onBookTour, renderBookTourModal]
   )
 
   const renderCard = useCallback(
