@@ -22,6 +22,7 @@ export interface UnitsListingLabels {
   viewCard: string
   viewList: string
   clearFilters: string
+  showResults: string
   retry: string
 }
 
@@ -40,6 +41,7 @@ export const defaultLabels: UnitsListingLabels = {
   viewCard: 'Cards',
   viewList: 'List',
   clearFilters: 'Clear',
+  showResults: 'Show results',
   retry: 'Try again',
 }
 

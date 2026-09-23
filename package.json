@@ -1,6 +1,6 @@
 {
   "name": "@cmdquery/units-listing",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Themeable units listing UI component for apartment/condo listings",
   "type": "module",
   "sideEffects": [

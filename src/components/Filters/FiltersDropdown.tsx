@@ -3,7 +3,10 @@
 import clsx from 'clsx'
 import { useEffect, useRef, useState } from 'react'
 
+import { useUnitsListingConfig } from '../../context/UnitsListingContext'
+import { useBodyOverflow } from '../../hooks/useBodyOverflow'
 import { useClickOutside } from '../../hooks/useClickOutside'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 import { ButtonGroup } from '../../ui/ButtonGroup/ButtonGroup'
 import type { BathFilter, OutdoorFilter } from '../../hooks/useUnitsFilter'
 import { ArrowDown } from './ArrowDown'
@@ -46,10 +49,14 @@ export function FiltersDropdown({
   onClear,
   isActive,
 }: Props) {
+  const { labels } = useUnitsListingConfig()
   const [isOpen, setIsOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
+  // Below 768px the panel is a full-screen sheet, so the page behind it must not scroll
+  const isSheet = useMediaQuery('(max-width: 767px)')
 
   useClickOutside([rootRef], () => setIsOpen(false))
+  useBodyOverflow(isOpen && isSheet)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -83,7 +90,23 @@ export function FiltersDropdown({
       </button>
 
       {isOpen && (
-        <div className="ul-filters-panel">
+        <div className="ul-filters-panel" role="dialog" aria-label={labels.filtersTitle}>
+          {/* Sheet header and footer actions are mobile-only; the desktop dropdown hides them */}
+          <div className="ul-filters-header">
+            <div className="ul-filters-title">{labels.filtersTitle}</div>
+            <button
+              type="button"
+              className="ul-filters-close-btn"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close filters"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M6 6L18 18" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </button>
+          </div>
+
           <div className="ul-filters-section">
             <div className="ul-filters-section-label">Bathrooms</div>
             <ButtonGroup
@@ -151,9 +174,15 @@ export function FiltersDropdown({
             </div>
           )}
 
-          <button type="button" className="ul-filters-clear-btn" onClick={handleClear}>
-            Clear
-          </button>
+          <div className="ul-filters-actions">
+            <button type="button" className="ul-filters-clear-btn" onClick={handleClear}>
+              Clear
+            </button>
+            {/* Filters apply as they change, so this only closes the sheet */}
+            <button type="button" className="ul-filters-apply-btn" onClick={() => setIsOpen(false)}>
+              {labels.showResults}
+            </button>
+          </div>
         </div>
       )}
     </div>
