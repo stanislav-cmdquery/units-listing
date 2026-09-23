@@ -46,7 +46,12 @@ export function ConcessionPopup({
               <s>{formatUSD(priceGross)}</s>
             </div>
           )}
-          {priceNet != null && priceNet > 0 && <div className="ul-concession-price-net">{formatUSD(priceNet)}*</div>}
+          {priceNet != null && priceNet > 0 && (
+            <div className="ul-concession-price-net">
+              {formatUSD(priceNet)}
+              {hasConcession && '*'}
+            </div>
+          )}
         </div>
 
         {showSaveBadge && priceNet != null && priceNet > 0 && priceGross != null && (

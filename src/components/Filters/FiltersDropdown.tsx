@@ -3,6 +3,7 @@
 import clsx from 'clsx'
 import { useEffect, useRef, useState } from 'react'
 
+import { useUnitsListingConfig } from '../../context/UnitsListingContext'
 import { useClickOutside } from '../../hooks/useClickOutside'
 import { ButtonGroup } from '../../ui/ButtonGroup/ButtonGroup'
 import type { BathFilter, OutdoorFilter } from '../../hooks/useUnitsFilter'
@@ -46,6 +47,7 @@ export function FiltersDropdown({
   onClear,
   isActive,
 }: Props) {
+  const { labels } = useUnitsListingConfig()
   const [isOpen, setIsOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement>(null)
 
@@ -82,8 +84,27 @@ export function FiltersDropdown({
         <ArrowDown className={clsx('ul-filters-arrow-down', isOpen && 'ul-filters-arrow-down-active')} />
       </button>
 
+      {/* Dims the page under the open panel; a click on it closes the filters */}
+      {isOpen && <div className="ul-filters-overlay" aria-hidden="true" onClick={() => setIsOpen(false)} />}
+
       {isOpen && (
-        <div className="ul-filters-panel">
+        <div className="ul-filters-panel" role="dialog" aria-label={labels.filtersTitle}>
+          {/* The header and Show results are mobile-only; the desktop dropdown hides them */}
+          <div className="ul-filters-header">
+            <div className="ul-filters-title">{labels.filtersTitle}</div>
+            <button
+              type="button"
+              className="ul-filters-close-btn"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close filters"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18" stroke="currentColor" strokeWidth="1.5" />
+                <path d="M6 6L18 18" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </button>
+          </div>
+
           <div className="ul-filters-section">
             <div className="ul-filters-section-label">Bathrooms</div>
             <ButtonGroup
@@ -151,9 +172,15 @@ export function FiltersDropdown({
             </div>
           )}
 
-          <button type="button" className="ul-filters-clear-btn" onClick={handleClear}>
-            Clear
-          </button>
+          <div className="ul-filters-actions">
+            <button type="button" className="ul-filters-clear-btn" onClick={handleClear}>
+              Clear
+            </button>
+            {/* Filters apply as they change, so this only closes the panel */}
+            <button type="button" className="ul-filters-apply-btn" onClick={() => setIsOpen(false)}>
+              {labels.showResults}
+            </button>
+          </div>
         </div>
       )}
     </div>

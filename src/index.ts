@@ -15,5 +15,6 @@ export type { UnitsFilterState, SortKey, SortDirection, PriceRange } from './typ
 export type { UnitsListingProps, ViewMode } from './UnitsListing/UnitsListing.types'
 export type { UnitsListingTheme, UnitsListingThemeVars } from './types/theme'
 export type { ImageComponent, ImageComponentProps } from './adapters/image'
+export type { CopyIconComponent, CopyIconComponentProps } from './adapters/copyIcon'
 export type { MotionAdapter } from './adapters/motion'
 export type { UnitsListingLabels } from './context/UnitsListingContext'

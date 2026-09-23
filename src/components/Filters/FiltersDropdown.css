@@ -1,5 +1,4 @@
 .ul-filters-root {
-  position: relative;
   margin-left: auto;
 }
 
@@ -41,18 +40,82 @@
   transform: rotate(180deg);
 }
 
+/* Sits right under the panel in the same stacking context */
+.ul-filters-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--ul-z-dropdown) - 1);
+  background-color: var(--ul-color-overlay);
+}
+
+/* Mobile: a full-width panel under the controls row (the root is not positioned, so the
+   panel spans .ul-grid-controls), with a header and a footer of actions */
 .ul-filters-panel {
   position: absolute;
   top: calc(100% + 8px);
+  left: 0;
   right: 0;
-  min-width: 305px;
   background-color: var(--ul-color-bg);
-  border-radius: var(--ul-radius-sm);
-  padding: 20px;
   z-index: var(--ul-z-dropdown);
   display: flex;
   flex-direction: column;
   gap: var(--ul-space-5);
+}
+
+.ul-filters-panel > .ul-filters-section {
+  padding: 0 20px;
+}
+
+.ul-filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ul-space-2);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ul-color-border);
+}
+
+.ul-filters-title {
+  color: var(--ul-color-text);
+  font-size: var(--ul-font-size-md);
+  font-weight: var(--ul-font-weight-medium);
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.ul-filters-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--ul-color-text);
+  cursor: pointer;
+}
+
+.ul-filters-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ul-space-2);
+  padding: 20px;
+  background-color: var(--ul-color-surface-alt);
+}
+
+.ul-filters-apply-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: var(--ul-color-text);
+  font-family: var(--ul-font-family);
+  font-size: var(--ul-font-size-lg);
+  font-weight: var(--ul-font-weight-medium);
+  line-height: 110%;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 .ul-filters-section {
@@ -216,6 +279,29 @@
 
 @media (min-width: 768px) {
   .ul-filters-root {
+    position: relative;
     margin-left: 0;
+  }
+
+  /* Desktop: a dropdown under the trigger */
+  .ul-filters-panel {
+    left: auto;
+    min-width: 305px;
+    border-radius: var(--ul-radius-sm);
+    padding: 20px;
+  }
+
+  .ul-filters-panel > .ul-filters-section {
+    padding: 0;
+  }
+
+  .ul-filters-header,
+  .ul-filters-apply-btn {
+    display: none;
+  }
+
+  /* Clear stays a direct item of the panel, as before the sheet */
+  .ul-filters-actions {
+    display: contents;
   }
 }

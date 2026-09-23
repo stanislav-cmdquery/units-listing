@@ -9,6 +9,8 @@
 }
 
 .ul-grid-controls {
+  /* Anchors the mobile filters panel to the full controls row */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
