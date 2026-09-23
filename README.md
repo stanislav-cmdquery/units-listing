@@ -206,7 +206,7 @@ All visual values are CSS custom properties. Override them at any scope:
 | `--ul-grid-gap` | `20px` | Grid gap |
 | `--ul-font-family` | `inherit` | Font family |
 | `--ul-transition` | `150ms ease-in-out` | UI transitions |
-| `--ul-z-dropdown` | `100` | Filter dropdown z-index |
+| `--ul-z-dropdown` | `100` | Filter dropdown z-index (its overlay sits one below) |
 | `--ul-z-modal` | `1000` | Modal z-index |
 | `--ul-z-lightbox` | `1100` | Lightbox z-index |
 

@@ -84,6 +84,9 @@ export function FiltersDropdown({
         <ArrowDown className={clsx('ul-filters-arrow-down', isOpen && 'ul-filters-arrow-down-active')} />
       </button>
 
+      {/* Dims the page under the open panel; a click on it closes the filters */}
+      {isOpen && <div className="ul-filters-overlay" aria-hidden="true" onClick={() => setIsOpen(false)} />}
+
       {isOpen && (
         <div className="ul-filters-panel" role="dialog" aria-label={labels.filtersTitle}>
           {/* The header and Show results are mobile-only; the desktop dropdown hides them */}

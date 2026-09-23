@@ -40,6 +40,14 @@
   transform: rotate(180deg);
 }
 
+/* Sits right under the panel in the same stacking context */
+.ul-filters-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--ul-z-dropdown) - 1);
+  background-color: var(--ul-color-overlay);
+}
+
 /* Mobile: a full-width panel under the controls row (the root is not positioned, so the
    panel spans .ul-grid-controls), with a header and a footer of actions */
 .ul-filters-panel {
